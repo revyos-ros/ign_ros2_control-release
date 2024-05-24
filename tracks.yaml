@@ -65,7 +65,7 @@ tracks:
     name: upstream
     patches: null
     release_inc: '1'
-    release_repo_url: https://github.com/revyos-ros/ign_ros2_control-release
+    release_repo_url: git@github.com:revyos-ros/ign_ros2_control-release
     release_tag: :{version}
     ros_distro: humble
     vcs_type: git
