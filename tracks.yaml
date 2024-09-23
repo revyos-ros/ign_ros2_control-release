@@ -1,3 +1,4 @@
+release_repo_url: git@github.com:revyos-ros/ign_ros2_control-release.git
 tracks:
   foxy:
     actions:
