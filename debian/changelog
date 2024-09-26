@@ -1,0 +1,66 @@
+ros-jazzy-gz-ros2-control-tests (1.2.7-1bookworm) bookworm; urgency=high
+
+  * Use spawner with --params-file argument instead of cli verbs (#399 <https://github.com/ros-controls/gz_ros2_control//issues/399>) (#409 <https://github.com/ros-controls/gz_ros2_control//issues/409>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+    (cherry picked from commit 30e67055bcd76e198805926997d01fefcc347255)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+  * Contributors: mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Wed, 28 Aug 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.6-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Mon, 08 Jul 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.5-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Mon, 08 Jul 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.4-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Sat, 01 Jun 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.3-1bookworm) bookworm; urgency=high
+
+  * Use Gazebo ROS vendor packages (#277 <https://github.com/ros-controls/gz_ros2_control/issues/277>)
+  * Contributors: Addisu Z. Taddese
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Mon, 13 May 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.2-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Wed, 20 Mar 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.1-1bookworm) bookworm; urgency=high
+
+  * Include testing packages on CI (#223 <https://github.com/ros-controls/gz_ros2_control/issues/223>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Tue, 23 Jan 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.2.0-1bookworm) bookworm; urgency=high
+
+  * Rename cartpole with cart (#214 <https://github.com/ros-controls/gz_ros2_control/issues/214>)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+  * Support Harmonic (#185 <https://github.com/ros-controls/gz_ros2_control/issues/185>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Wed, 03 Jan 2024 16:00:00 -0000
+
+ros-jazzy-gz-ros2-control-tests (1.1.1-1bookworm) bookworm; urgency=high
+
+  * Run end to end test in CI (#152 <https://github.com/ros-controls/gz_ros2_control//issues/152>)
+  * Add test to check position controller (#134 <https://github.com/ros-controls/gz_ros2_control//issues/134>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Wed, 12 Jul 2023 16:00:00 -0000
+
+
