@@ -1,0 +1,53 @@
+From 07e3bffdd5e509e567c2d4a69b9874cc586adec9 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Mon, 11 Nov 2024 16:09:12 +0800
+Subject: [PATCH] add #include <algorithm>
+
+---
+ .../patches/0001-add-include-algorithm.patch  | 25 +++++++++++++++++++
+ debian/patches/series                         |  1 +
+ 2 files changed, 26 insertions(+)
+ create mode 100644 debian/patches/0001-add-include-algorithm.patch
+ create mode 100644 debian/patches/series
+
+diff --git a/debian/patches/0001-add-include-algorithm.patch b/debian/patches/0001-add-include-algorithm.patch
+new file mode 100644
+index 0000000..5010872
+--- /dev/null
++++ b/debian/patches/0001-add-include-algorithm.patch
+@@ -0,0 +1,25 @@
++From 0412d7053a1fae33b46677356321b6d17a224eb4 Mon Sep 17 00:00:00 2001
++From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
++Date: Mon, 11 Nov 2024 16:08:12 +0800
++Subject: [PATCH] add #include <algorithm>
++
++---
++ src/ign_ros2_control_plugin.cpp | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/src/ign_ros2_control_plugin.cpp b/src/ign_ros2_control_plugin.cpp
++index 7ebcfcb..c7f5915 100644
++--- a/src/ign_ros2_control_plugin.cpp
+++++ b/src/ign_ros2_control_plugin.cpp
++@@ -13,7 +13,7 @@
++ // limitations under the License.
++ 
++ #include <unistd.h>
++-
+++#include <algorithm>
++ #include <chrono>
++ #include <map>
++ #include <memory>
++-- 
++2.46.0
++
+diff --git a/debian/patches/series b/debian/patches/series
+new file mode 100644
+index 0000000..1364962
+--- /dev/null
++++ b/debian/patches/series
+@@ -0,0 +1 @@
++0001-add-include-algorithm.patch
+-- 
+2.46.0
+
