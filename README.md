@@ -1,13 +1,13 @@
-# gz_ros2_control
+# ign_ros2_control
 
 ROS2 Distro | Build Status | Package build |
 :---------: | :----: | :----------: |
-[![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jdev__gz_ros2_control__ubuntu_noble_amd64)](https://build.ros2.org/job/Jdev__gz_ros2_control__ubuntu_noble_amd64/) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jbin_uN64__gz_ros2_control__ubuntu_noble_amd64__binary)](https://build.ros2.org/job/Jbin_uN64__gz_ros2_control__ubuntu_noble_amd64__binary/) |
+[![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hdev__ign_ros2_control__ubuntu_jammy_amd64)](https://build.ros2.org/job/Hdev__ign_ros2_control__ubuntu_jammy_amd64/) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hbin_uJ64__ign_ros2_control__ubuntu_jammy_amd64__binary)](https://build.ros2.org/job/Hbin_uJ64__ign_ros2_control__ubuntu_jammy_amd64__binary/) |
 
-This is a ROS 2 package for integrating the `ros2_control` controller architecture with the [Gazebo](http://gazebosim.org/) simulator.
+This is a ROS 2 package for integrating the `ros2_control` controller architecture with the [Ignition Gazebo](http://ignitionrobotics.org/) simulator.
 More information about `ros2_control` can be found here: https://control.ros.org/
 
-This package provides a Gazebo-Sim system plugin which instantiates a `ros2_control` controller manager and connects it to a Gazebo model.
+This package provides an Ignition Gazebo system plugin which instantiates a `ros2_control` controller manager and connects it to a Gazebo model.
 
 ROS version | Gazebo version | Branch | Binaries hosted at | APT key
 -- | -- | -- | -- | --
@@ -16,34 +16,37 @@ Iron | Edifice | [iron](https://github.com/ros-controls/gz_ros2_control/tree/iro
 Iron | Fortress | [iron](https://github.com/ros-controls/gz_ros2_control/tree/iron) | https://packages.ros.org | `ros-iron-gz-ros2-control`
 Iron | Garden | [iron](https://github.com/ros-controls/gz_ros2_control/tree/iron) | only from source |
 Iron | Harmonic | [iron](https://github.com/ros-controls/gz_ros2_control/tree/iron) | only from source |
-Jazzy | Harmonic | [jazzy](https://github.com/ros-controls/gz_ros2_control/tree/jazzy) | https://packages.ros.org | `ros-jazzy-gz-ros2-control`
+Jazzy | Harmonic | [master](https://github.com/ros-controls/gz_ros2_control/tree/master) | https://packages.ros.org | `ros-jazzy-gz-ros2-control`
 Rolling | Harmonic | [master](https://github.com/ros-controls/gz_ros2_control/tree/master) | https://packages.ros.org | `ros-rolling-gz-ros2-control`
 
 ## Build status
 
 ROS 2 Distro | Branch | Build status | Documentation
 :----------: | :----: | :----------: | :-----------:
-**Rolling** | [`master`](https://github.com/ros-controls/gz_ros2_control/tree/master) | [![gazebo_ros2_control CI - Rolling](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-rolling.yaml/badge.svg?branch=master)](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-rolling.yaml) | [Documentation](https://control.ros.org/rolling/index.html) <br /> [API Reference](https://control.ros.org/rolling/doc/api/index.html)
-**Jazzy** | [`jazzy`](https://github.com/ros-controls/gz_ros2_control/tree/jazzy) | [![gazebo_ros2_control CI - Jazzy](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-jazzy.yaml/badge.svg?branch=master)](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-jazzy.yaml) | [Documentation](https://control.ros.org/jazzy/index.html) <br /> [API Reference](https://control.ros.org/jazzy/doc/api/index.html)
+**Rolling** | [`master`](https://github.com/ros-controls/gz_ros2_control/tree/master) | [![gazebo_ros2_control CI - Rolling](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-rolling.yaml/badge.svg?branch=master)](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-rolling.yaml) | [Documentation](https://control.ros.org/master/index.html) <br /> [API Reference](https://control.ros.org/master/doc/api/index.html)
 **Iron** | [`iron`](https://github.com/ros-controls/gz_ros2_control/tree/iron) | [![gazebo_ros2_control CI - Iron](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-iron.yaml/badge.svg?branch=iron)](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-iron.yaml) | [Documentation](https://control.ros.org/iron/index.html) <br /> [API Reference](https://control.ros.org/iron/doc/api/index.html)
 **Humble** | [`humble`](https://github.com/ros-controls/gz_ros2_control/tree/humble) | [![ign_ros2_control CI - Humble](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-humble.yaml/badge.svg?branch=humble)](https://github.com/ros-controls/gz_ros2_control/actions/workflows/ci-humble.yaml) | [Documentation](https://control.ros.org/humble/index.html) <br /> [API Reference](https://control.ros.org/humble/doc/api/index.html)
 
 ## Documentation
-See the [documentation file](doc/index.rst) or [control.ros.org](https://control.ros.org/master/doc/gz_ros2_control/doc/index.html)
+See the [documentation file](doc/index.rst) or [control.ros.org](https://control.ros.org/master/doc/simulators/gz_ros2_control/doc/index.html)
 
 # Compile from source
 
-Note that `gz_ros2_control` depends on the version of Gazebo that is
-provided by the Gazebo Vendor packages [`gz_plugin_vendor`](https://github.com/gazebo-release/gz_plugin_vendor) and [`gz_sim_vendor`](https://github.com/gazebo-release/gz_sim_vendor).
-Currently, for ROS 2 Jazzy and Rolling, the Gazebo version is Harmonic.
-
-To compile `gz_ros2_control` from source, create a workspace, clone the correct branch of this repo and compile it:
+If you want compile this from source, you should choose the Ignition version. The default one is `citadel`:
 
 ```bash
-mkdir -p ~/gz_ros2_control_ws/src
-cd ~/gz_ros2_control_ws/src
-git clone https://github.com/ros-controls/gz_ros2_control -b {ROS_DISTRO}
+export IGNITION_VERSION=citadel
+export IGNITION_VERSION=edifice
+export IGNITION_VERSION=fortress
+```
+
+Then create a workspace, clone the repo and compile it:
+
+```bash
+mkdir -p ~/ros_ign/src
+cd ~/ros_ign/src
+git clone https://github.com/ros-controls/gz_ros2_control
 rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
-cd ~/gz_ros2_control_ws
+cd ~/ros2_ign
 colcon build
 ```

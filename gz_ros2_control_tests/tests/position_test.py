@@ -19,7 +19,7 @@ import unittest
 from ament_index_python.packages import get_package_share_directory
 
 import launch
-from launch.actions import IncludeLaunchDescription
+from launch.actions import ExecuteProcess, IncludeLaunchDescription
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -59,11 +59,6 @@ def generate_test_description():
     xacro_file = os.path.join(gz_ros2_control_tests_path,
                               'urdf',
                               'test_cart_position.xacro.urdf')
-    robot_controllers = os.path.join(
-            gz_ros2_control_tests_path,
-            'config',
-            'cart_controller_position.yaml'
-    )
 
     print('xacro_file ', xacro_file)
     doc = xacro.parse(open(xacro_file))
@@ -86,19 +81,16 @@ def generate_test_description():
                    '-allow_renaming', 'true'],
     )
 
-    joint_state_broadcaster_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['joint_state_broadcaster'],
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'joint_state_broadcaster'],
+        output='screen'
     )
-    joint_trajectory_controller_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=[
-            'joint_trajectory_controller',
-            '--param-file',
-            robot_controllers,
-            ],
+
+    load_joint_trajectory_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'joint_trajectory_controller'],
+        output='screen'
     )
 
     ld = launch.LaunchDescription([
@@ -108,13 +100,13 @@ def generate_test_description():
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,
-                on_exit=[joint_state_broadcaster_spawner],
+                on_exit=[load_joint_state_broadcaster],
             )
         ),
         RegisterEventHandler(
             event_handler=OnProcessExit(
-                target_action=joint_state_broadcaster_spawner,
-                on_exit=[joint_trajectory_controller_spawner],
+                target_action=load_joint_state_broadcaster,
+                on_exit=[load_joint_trajectory_controller],
             )
         ),
         KeepAliveProc(),
@@ -128,10 +120,9 @@ def generate_test_description():
 class TestFixture(unittest.TestCase):
 
     def test_arm(self, launch_service, proc_info, proc_output):
-        proc_output.assertWaitFor('Configured and activated',
-                                  process='spawner',
-                                  cmd_args=['joint_trajectory_controller'],
-                                  timeout=100)
+        proc_output.assertWaitFor('Successfully loaded controller joint_trajectory_controller '
+                                  'into state active',
+                                  timeout=100, stream='stdout')
 
         proc_action = Node(
             package='gz_ros2_control_tests',
@@ -146,10 +137,7 @@ class TestFixture(unittest.TestCase):
             launch_testing.asserts.assertExitCodes(proc_info, process=proc_action,
                                                    allowable_exit_codes=[0])
 
-    def tearDown(self):
         for proc in psutil.process_iter():
             # check whether the process name matches
             if proc.name() == 'ruby':
-                proc.kill()
-            if 'gz sim' in proc.name():
                 proc.kill()

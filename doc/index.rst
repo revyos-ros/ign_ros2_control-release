@@ -31,13 +31,13 @@ To run the demo
 
   .. code-block:: shell
 
-    docker run -it --rm --name gz_ros2_control_demo --net host gz_ros2_control ros2 launch gz_ros2_control_demos cart_example_position.launch.py gui:=false
+    docker run -it --rm --name gz_ros2_control_demo --net host gz_ros2_control ros2 launch ign_ros2_control_demos cart_example_position.launch.py gui:=false
 
   Then on your local machine, you can run the Gazebo client:
 
   .. code-block:: shell
 
-    gz sim -g
+    ign gazebo -g
 
 
 2. Using Rocker
@@ -76,9 +76,9 @@ include:
 
 .. code-block:: xml
 
-  <ros2_control name="GazeboSimSystem" type="system">
+  <ros2_control name="IgnitionSystem" type="system">
     <hardware>
-      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
     </hardware>
     <joint name="slider_to_cart">
       <command_interface name="effort">
@@ -96,19 +96,16 @@ include:
 Using mimic joints in simulation
 -----------------------------------------------------------
 
-To use ``mimic`` joints in *gz_ros2_control* you should define its parameters in your URDF, i.e, set the ``<mimic>`` tag to the mimicked joint (see the `URDF specification <https://wiki.ros.org/urdf/XML/joint>`__)
+To use ``mimic`` joints in *gz_ros2_control* you should define its parameters to your URDF.
+We should include:
+
+* ``<mimic>`` tag to the mimicked joint `detailed manual <https://wiki.ros.org/urdf/XML/joint>`__
+* ``mimic`` and ``multiplier`` parameters to joint definition in ``<ros2_control>`` tag
 
 .. code-block:: xml
 
-  <joint name="right_finger_joint" type="prismatic">
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.0 -0.48 1" rpy="0.0 0.0 0.0"/>
-    <parent link="base"/>
-    <child link="finger_right"/>
-    <limit effort="1000.0" lower="0" upper="0.38" velocity="10"/>
-  </joint>
   <joint name="left_finger_joint" type="prismatic">
-    <mimic joint="right_finger_joint" multiplier="1" offset="0"/>
+    <mimic joint="right_finger_joint"/>
     <axis xyz="0 1 0"/>
     <origin xyz="0.0 0.48 1" rpy="0.0 0.0 3.1415926535"/>
     <parent link="base"/>
@@ -116,7 +113,16 @@ To use ``mimic`` joints in *gz_ros2_control* you should define its parameters in
     <limit effort="1000.0" lower="0" upper="0.38" velocity="10"/>
   </joint>
 
-The mimic joint must not have command interfaces configured in the ``<ros2_control>`` tag, but state interfaces can be configured.
+.. code-block:: xml
+
+  <joint name="left_finger_joint">
+    <param name="mimic">right_finger_joint</param>
+    <param name="multiplier">1</param>
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
 
 
 Add the gz_ros2_control plugin
@@ -131,43 +137,16 @@ robot hardware interfaces between *ros2_control* and Gazebo.
 .. code-block:: xml
 
   <gazebo>
-    <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <parameters>$(find gz_ros2_control_demos)/config/cart_controller.yaml</parameters>
-    </plugin>
+      <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <robot_param>robot_description</robot_param>
+        <robot_param_node>robot_state_publisher</robot_param_node>
+        <parameters>$(find gz_ros2_control_demos)/config/cart_controller.yaml</parameters>
+      </plugin>
   </gazebo>
 
 The *gz_ros2_control* ``<plugin>`` tag also has the following optional child elements:
 
-* ``<parameters>``: A YAML file with the configuration of the controllers. This element can be given multiple times to load multiple files.
-* ``<controller_manager_name>``: Set controller manager name (default: ``controller_manager``)
-
-The following additional parameters can be set via child elements in the URDF or via ROS parameters in the YAML file above:
-
-* ``<hold_joints>``: if set to true (default), it will hold the joints' position if their interface was not claimed, e.g., the controller hasn't been activated yet.
-* ``<position_proportional_gain>``: Set the proportional gain. (default: 0.1) This determines the setpoint for a position-controlled joint ``joint_velocity = joint_position_error * position_proportional_gain``.
-
-or via ROS parameters:
-
-.. code-block:: yaml
-
-  gz_ros_control:
-    ros__parameters:
-      hold_joints: false
-      position_proportional_gain: 0.5
-
-Additionally, one can specify a namespace and remapping rules, which will be forwarded to the controller_manager and loaded controllers. Add the following ``<ros>`` section:
-
-.. code-block:: xml
-
-  <gazebo>
-    <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      ...
-      <ros>
-        <namespace>my_namespace</namespace>
-        <remapping>/robot_description:=/robot_description_full</remapping>
-      </ros>
-    </plugin>
-  </gazebo>
+* ``<parameters>``: YAML file with the configuration of the controllers
 
 Default gz_ros2_control Behavior
 -----------------------------------------------------------
@@ -193,9 +172,9 @@ robot model is loaded. For example, the following XML will load the default plug
 
 .. code-block:: xml
 
-  <ros2_control name="GazeboSimSystem" type="system">
+  <ros2_control name="IgnitionSystem" type="system">
     <hardware>
-      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
     </hardware>
     ...
   <ros2_control>
@@ -225,7 +204,7 @@ The following is a basic configuration of the controllers:
 - ``joint_state_broadcaster``: This controller publishes the state of all resources registered to a ``hardware_interface::StateInterface`` to a topic of type ``sensor_msgs/msg/JointState``.
 - ``joint_trajectory_controller``: This controller creates an action called ``/joint_trajectory_controller/follow_joint_trajectory`` of type ``control_msgs::action::FollowJointTrajectory``.
 
-.. literalinclude:: ../gz_ros2_control_demos/config/cart_controller_position.yaml
+.. literalinclude:: ../ign_ros2_control_demos/config/cart_controller_position.yaml
    :language: yaml
 
 
@@ -287,19 +266,8 @@ The following example shows a parallel gripper with a mimic joint:
 
 .. code-block:: shell
 
-  ros2 launch gz_ros2_control_demos gripper_mimic_joint_example_position.launch.py
+  ros2 launch gz_ros2_control_demos gripper_mimic_joint_example.launch.py
 
-.. image:: img/gz_gripper.gif
-  :alt: Gripper
-
-To demonstrate the setup of the initial position and a position-mimicked joint in
-case of an effort command interface of the joint to be mimicked, run
-
-.. code-block:: shell
-
-  ros2 launch gz_ros2_control_demos gripper_mimic_joint_example_effort.launch.py
-
-instead.
 
 Send example commands:
 
