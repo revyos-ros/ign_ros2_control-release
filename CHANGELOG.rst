@@ -2,6 +2,34 @@
 Changelog for package ign_ros2_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.9 (2024-07-02)
+------------------
+* Don't crash if a wrong config was detected (`#324 <https://github.com/ros-controls/gz_ros2_control/issues/324>`_) (`#330 <https://github.com/ros-controls/gz_ros2_control/issues/330>`_)
+  (cherry picked from commit ec1b95893fa933cb3e2cc5341bb65dd621645785)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Harden behavior if a joint is not found in the model (backport `#325 <https://github.com/ros-controls/gz_ros2_control/issues/325>`_) (`#326 <https://github.com/ros-controls/gz_ros2_control/issues/326>`_)
+  * Don't crash if a joint does not exist
+* Changed to use spin instead of spin_once to enable multithreading with MultiThreadedExecutor (`#315 <https://github.com/ros-controls/gz_ros2_control/issues/315>`_) (`#320 <https://github.com/ros-controls/gz_ros2_control/issues/320>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  (cherry picked from commit 45035076408e6014cc911e8d4bc169572a25008c)
+  Co-authored-by: Takashi Sato <t.sato17123@gmail.com>
+* Contributors: Christoph Fröhlich, mergify[bot]
+
+0.7.8 (2024-05-14)
+------------------
+* Fixed target of ament_export_libraries (`#300 <https://github.com/ros-controls/gz_ros2_control/issues/300>`_)
+* Added parameters robot_param and robot_param_node (`#275 <https://github.com/ros-controls/gz_ros2_control/issues/275>`_)
+* Update precommit config (backport `#271 <https://github.com/ros-controls/gz_ros2_control/issues/271>`_) (`#278 <https://github.com/ros-controls/gz_ros2_control/issues/278>`_)
+  * Update precommit config (`#271 <https://github.com/ros-controls/gz_ros2_control/issues/271>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  (cherry picked from commit 492ed646010fc55a6acc32d07138ddda8824aff5)
+  * make linters happy
+  ---------
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Contributors: Alejandro Hernández Cordero, mergify[bot]
+
 0.7.7 (2024-04-09)
 ------------------
 * Fix `#259 <https://github.com/ros-controls/gz_ros2_control/issues/259>`_ - `ParameterAlreadyDeclaredException` for parameter `position_proportional_gain` (backport `#261 <https://github.com/ros-controls/gz_ros2_control/issues/261>`_) (`#262 <https://github.com/ros-controls/gz_ros2_control/issues/262>`_)

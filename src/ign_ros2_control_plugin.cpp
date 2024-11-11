@@ -73,9 +73,6 @@ public:
   /// \brief Thread where the executor will spin
   std::thread thread_executor_spin_;
 
-  /// \brief Flag to stop the executor thread when this plugin is exiting
-  bool stop_{false};
-
   /// \brief Executor to spin the controller
   rclcpp::executors::MultiThreadedExecutor::SharedPtr executor_;
 
@@ -92,11 +89,9 @@ public:
   controller_manager_{nullptr};
 
   /// \brief String with the robot description param_name
-  // TODO(ahcorde): Add param in plugin tag
   std::string robot_description_ = "robot_description";
 
   /// \brief String with the name of the node that contains the robot_description
-  // TODO(ahcorde): Add param in plugin tag
   std::string robot_description_node_ = "robot_state_publisher";
 
   /// \brief Last time the update method was called
@@ -240,7 +235,9 @@ IgnitionROS2ControlPlugin::IgnitionROS2ControlPlugin()
 IgnitionROS2ControlPlugin::~IgnitionROS2ControlPlugin()
 {
   // Stop controller manager thread
-  this->dataPtr->stop_ = true;
+  if (!this->dataPtr->controller_manager_) {
+    return;
+  }
   this->dataPtr->executor_->remove_node(this->dataPtr->controller_manager_);
   this->dataPtr->executor_->cancel();
   this->dataPtr->thread_executor_spin_.join();
@@ -274,6 +271,23 @@ void IgnitionROS2ControlPlugin::Configure(
       "Ignition ros2 control found an empty parameters file. Failed to initialize.");
     return;
   }
+
+  // Get params from SDF
+  std::string robot_param_node = _sdf->Get<std::string>("robot_param_node");
+  if (!robot_param_node.empty()) {
+    this->dataPtr->robot_description_node_ = robot_param_node;
+  }
+  RCLCPP_INFO(
+    logger,
+    "robot_param_node is %s", this->dataPtr->robot_description_node_.c_str());
+
+  std::string robot_description = _sdf->Get<std::string>("robot_param");
+  if (!robot_description.empty()) {
+    this->dataPtr->robot_description_ = robot_description;
+  }
+  RCLCPP_INFO(
+    logger,
+    "robot_param_node is %s", this->dataPtr->robot_description_.c_str());
 
   std::vector<std::string> arguments = {"--ros-args"};
 
@@ -339,12 +353,9 @@ void IgnitionROS2ControlPlugin::Configure(
   this->dataPtr->node_ = rclcpp::Node::make_shared(node_name, ns);
   this->dataPtr->executor_ = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();
   this->dataPtr->executor_->add_node(this->dataPtr->node_);
-  this->dataPtr->stop_ = false;
   auto spin = [this]()
     {
-      while (rclcpp::ok() && !this->dataPtr->stop_) {
-        this->dataPtr->executor_->spin_once();
-      }
+      this->dataPtr->executor_->spin();
     };
   this->dataPtr->thread_executor_spin_ = std::thread(spin);
 
@@ -475,6 +486,9 @@ void IgnitionROS2ControlPlugin::PreUpdate(
   const ignition::gazebo::UpdateInfo & _info,
   ignition::gazebo::EntityComponentManager & /*_ecm*/)
 {
+  if (!this->dataPtr->controller_manager_) {
+    return;
+  }
   static bool warned{false};
   if (!warned) {
     rclcpp::Duration gazebo_period(_info.dt);
@@ -509,6 +523,9 @@ void IgnitionROS2ControlPlugin::PostUpdate(
   const ignition::gazebo::UpdateInfo & _info,
   const ignition::gazebo::EntityComponentManager & /*_ecm*/)
 {
+  if (!this->dataPtr->controller_manager_) {
+    return;
+  }
   // Get the simulation time and period
   rclcpp::Time sim_time_ros(std::chrono::duration_cast<std::chrono::nanoseconds>(
       _info.simTime).count(), RCL_ROS_TIME);
