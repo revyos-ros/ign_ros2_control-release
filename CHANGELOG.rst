@@ -2,6 +2,37 @@
 Changelog for package ign_ros2_control_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.9 (2024-07-02)
+------------------
+* [Backport humble]  Ackermann steering example (`#352 <https://github.com/ros-controls/gz_ros2_control/issues/352>`_)
+  Co-authored-by: huzaifa <84243533+huzzu7@users.noreply.github.com>
+* Fixed pendulum examples (`#353 <https://github.com/ros-controls/gz_ros2_control/issues/353>`_)
+* Rename variable in launch file (`#327 <https://github.com/ros-controls/gz_ros2_control/issues/327>`_) (`#338 <https://github.com/ros-controls/gz_ros2_control/issues/338>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  (cherry picked from commit cd0b002c49e71be459f4e9f0a063b97fed195b28)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* added color definitions (`#310 <https://github.com/ros-controls/gz_ros2_control/issues/310>`_) (`#312 <https://github.com/ros-controls/gz_ros2_control/issues/312>`_)
+  (cherry picked from commit 7cb6fd901f373d6fcfa75ef23e43c6b9d7b186a7)
+  Co-authored-by: Reza Kermani <kermani.areza@gmail.com>
+* Contributors: Alejandro Hernández Cordero, mergify[bot]
+
+0.7.8 (2024-05-14)
+------------------
+* Update pendulum-example  (`#301 <https://github.com/ros-controls/gz_ros2_control/issues/301>`_) (`#303 <https://github.com/ros-controls/gz_ros2_control/issues/303>`_)
+  * Change initial pose of pendulum
+  * Make position and effort version of pendulum equal
+  (cherry picked from commit 1e7721409e5e3d2c583868353a09929ca37bf860)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Add cart-pole demo (`#289 <https://github.com/ros-controls/gz_ros2_control/issues/289>`_) (`#290 <https://github.com/ros-controls/gz_ros2_control/issues/290>`_)
+  (cherry picked from commit 27af2108e77420dc46c83ac31658fccb67e33911)
+  # Conflicts:
+  #	ign_ros2_control_demos/launch/pendulum_example_effort.launch.py
+  #	ign_ros2_control_demos/launch/pendulum_example_position.launch.py
+  #	ign_ros2_control_demos/urdf/test_pendulum_effort.xacro.urdf
+  #	ign_ros2_control_demos/urdf/test_pendulum_position.xacro.urdf
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Contributors: mergify[bot]
+
 0.7.7 (2024-04-09)
 ------------------
 
