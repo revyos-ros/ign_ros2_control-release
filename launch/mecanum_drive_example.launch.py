@@ -1,4 +1,4 @@
-# Copyright 2022 Open Source Robotics Foundation, Inc.
+# Copyright 2024 Open Source Robotics Foundation, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ def generate_launch_description():
             ' ',
             PathJoinSubstitution(
                 [FindPackageShare('gz_ros2_control_demos'),
-                 'urdf', 'test_diff_drive.xacro.urdf']
+                 'urdf', 'test_mecanum_drive.xacro.urdf']
             ),
         ]
     )
@@ -43,7 +43,7 @@ def generate_launch_description():
         [
             FindPackageShare('gz_ros2_control_demos'),
             'config',
-            'diff_drive_controller_velocity.yaml',
+            'mecanum_drive_controller.yaml',
         ]
     )
 
@@ -58,8 +58,8 @@ def generate_launch_description():
         package='ros_gz_sim',
         executable='create',
         output='screen',
-        arguments=['-topic', 'robot_description', '-name',
-                   'diff_drive', '-allow_renaming', 'true'],
+        arguments=['-topic', 'robot_description',
+                   '-name', 'mecanum_vehicle', '-allow_renaming', 'true'],
     )
 
     joint_state_broadcaster_spawner = Node(
@@ -67,11 +67,11 @@ def generate_launch_description():
         executable='spawner',
         arguments=['joint_state_broadcaster'],
     )
-    diff_drive_base_controller_spawner = Node(
+    mecanum_drive_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
         arguments=[
-            'diff_drive_base_controller',
+            'mecanum_drive_controller',
             '--param-file',
             robot_controllers,
             ],
@@ -102,7 +102,7 @@ def generate_launch_description():
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=joint_state_broadcaster_spawner,
-                on_exit=[diff_drive_base_controller_spawner],
+                on_exit=[mecanum_drive_controller_spawner],
             )
         ),
         bridge,
