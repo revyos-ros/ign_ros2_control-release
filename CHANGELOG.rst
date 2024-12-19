@@ -2,7 +2,13 @@
 Changelog for package ign_ros2_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.2.7 (2024-08-29)
+1.2.9 (2024-12-11)
+------------------
+
+* use gz-physics`#283 <https://github.com/ros-controls/gz_ros2_control/issues/283>`_ to implement joint_states/effort feedback (`#186 <https://github.com/ros-controls/gz_ros2_control/issues/186>`_)
+* Contributors: Andreas Bihlmaier
+
+1.2.8 (2024-10-28)
 ------------------
 * Parse `position_proportional_gain` parameter from URDF and update docs (`#393 <https://github.com/ros-controls/gz_ros2_control//issues/393>`_) (`#410 <https://github.com/ros-controls/gz_ros2_control//issues/410>`_)
   Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
