@@ -2,7 +2,18 @@
 Changelog for package ign_ros2_control_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.2.7 (2024-08-29)
+1.2.9 (2024-12-11)
+------------------
+* Add Mecanum vehicle example (`#451 <https://github.com/ros-controls/gz_ros2_control/issues/451>`_) (`#455 <https://github.com/ros-controls/gz_ros2_control/issues/455>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  (cherry picked from commit 18bdde12b46814d9b4607817a7f5df0cb0930364)
+  Co-authored-by: Marq Rasmussen <marq.razz@gmail.com>
+* Add missing bridge for simulation time (`#443 <https://github.com/ros-controls/gz_ros2_control/issues/443>`_) (`#445 <https://github.com/ros-controls/gz_ros2_control/issues/445>`_)
+  (cherry picked from commit 301ca580d0772b9952579a783632500eeca7e53b)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Contributors: mergify[bot]
+
+1.2.8 (2024-10-28)
 ------------------
 * Use spawner with `--params-file` argument instead of cli verbs (`#399 <https://github.com/ros-controls/gz_ros2_control//issues/399>`_) (`#409 <https://github.com/ros-controls/gz_ros2_control//issues/409>`_)
   Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
