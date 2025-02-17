@@ -2,6 +2,23 @@
 Changelog for package ign_ros2_control_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.11 (2025-02-07)
+-------------------
+* Update diff_drive_controller.yaml (`#494 <https://github.com/ros-controls/gz_ros2_control/issues/494>`_) (`#497 <https://github.com/ros-controls/gz_ros2_control/issues/497>`_)
+  (cherry picked from commit 135332632bd340f17eeb0930b0d46b30fb956ebb)
+  Co-authored-by: Aarav Gupta <amronos275@gmail.com>
+* Contributors: mergify[bot]
+
+0.7.10 (2025-02-05)
+-------------------
+* Publish z component instead of x (`#479 <https://github.com/ros-controls/gz_ros2_control/issues/479>`_)
+* Fix ackermann demo (`#468 <https://github.com/ros-controls/gz_ros2_control/issues/468>`_)
+* Add a namespaced example (`#457 <https://github.com/ros-controls/gz_ros2_control/issues/457>`_) (`#461 <https://github.com/ros-controls/gz_ros2_control/issues/461>`_)
+* Add missing bridges for simulation time (backport `#443 <https://github.com/ros-controls/gz_ros2_control/issues/443>`_) (`#446 <https://github.com/ros-controls/gz_ros2_control/issues/446>`_)
+* Fix docs on humble (`#365 <https://github.com/ros-controls/gz_ros2_control/issues/365>`_)
+* fixed robot name (`#358 <https://github.com/ros-controls/gz_ros2_control/issues/358>`_) (`#360 <https://github.com/ros-controls/gz_ros2_control/issues/360>`_)
+* Contributors: Christoph Fröhlich, mergify[bot]
+
 0.7.9 (2024-07-02)
 ------------------
 * [Backport humble]  Ackermann steering example (`#352 <https://github.com/ros-controls/gz_ros2_control/issues/352>`_)
