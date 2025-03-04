@@ -2,6 +2,11 @@
 Changelog for package ign_ros2_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.12 (2025-02-20)
+-------------------
+* Remove comments in robot_description string (`#505 <https://github.com/ros-controls/gz_ros2_control/issues/505>`_)
+* Contributors: Christoph Fröhlich
+
 0.7.11 (2025-02-07)
 -------------------
 
