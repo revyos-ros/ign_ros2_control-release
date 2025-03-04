@@ -2,6 +2,9 @@
 Changelog for package ign_ros2_control_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.12 (2025-02-20)
+-------------------
+
 0.7.11 (2025-02-07)
 -------------------
 * Update diff_drive_controller.yaml (`#494 <https://github.com/ros-controls/gz_ros2_control/issues/494>`_) (`#497 <https://github.com/ros-controls/gz_ros2_control/issues/497>`_)
