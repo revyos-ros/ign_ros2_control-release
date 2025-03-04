@@ -1,4 +1,4 @@
-From 85a3f7c5c70e6fbd3e59c4e9982083e988400b7d Mon Sep 17 00:00:00 2001
+From 08bca12c9304105d6fe8065b0c99758894de6e7b Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Mon, 11 Nov 2024 16:09:12 +0800
 Subject: [PATCH] add #include <algorithm>
@@ -49,5 +49,5 @@ index 0000000..1364962
 @@ -0,0 +1 @@
 +0001-add-include-algorithm.patch
 -- 
-2.47.1
+2.48.1
 
