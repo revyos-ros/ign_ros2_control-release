@@ -1,4 +1,4 @@
-# Copyright 2024 ros2_control Development Team
+# Copyright 2024 Open Source Robotics Foundation, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,8 +34,10 @@ def generate_launch_description():
             ' ',
             PathJoinSubstitution(
                 [FindPackageShare('gz_ros2_control_demos'),
-                 'urdf', 'test_pendulum_position.xacro.urdf']
+                 'urdf', 'test_diff_drive.xacro.urdf']
             ),
+            ' ',
+            'namespace:=r1',
         ]
     )
     robot_description = {'robot_description': robot_description_content}
@@ -43,13 +45,14 @@ def generate_launch_description():
         [
             FindPackageShare('gz_ros2_control_demos'),
             'config',
-            'cart_controller_position.yaml',
+            'diff_drive_controller.yaml',
         ]
     )
 
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        namespace='r1',
         output='screen',
         parameters=[robot_description]
     )
@@ -57,23 +60,28 @@ def generate_launch_description():
     gz_spawn_entity = Node(
         package='ros_gz_sim',
         executable='create',
+        namespace='r1',
         output='screen',
-        arguments=['-topic', 'robot_description',
-                   '-name', 'cart', '-allow_renaming', 'true'],
+        arguments=['-topic', 'robot_description', '-name',
+                   'diff_drive', '-allow_renaming', 'true'],
     )
 
     joint_state_broadcaster_spawner = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['joint_state_broadcaster'],
+        arguments=[
+            'joint_state_broadcaster',
+            '-c', '/r1/controller_manager'
+            ],
     )
-    joint_trajectory_controller_spawner = Node(
+    diff_drive_base_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
         arguments=[
-            'joint_trajectory_controller',
+            'diff_drive_base_controller',
             '--param-file',
             robot_controllers,
+            '-c', '/r1/controller_manager'
             ],
     )
 
@@ -102,7 +110,7 @@ def generate_launch_description():
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=joint_state_broadcaster_spawner,
-                on_exit=[joint_trajectory_controller_spawner],
+                on_exit=[diff_drive_base_controller_spawner],
             )
         ),
         bridge,
