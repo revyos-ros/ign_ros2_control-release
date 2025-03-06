@@ -2,6 +2,28 @@
 Changelog for package ign_ros2_control_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.11 (2025-02-19)
+-------------------
+* Update diff_drive_controller.yaml (`#494 <https://github.com/ros-controls/gz_ros2_control/issues/494>`_) (`#496 <https://github.com/ros-controls/gz_ros2_control/issues/496>`_)
+  (cherry picked from commit 135332632bd340f17eeb0930b0d46b30fb956ebb)
+  Co-authored-by: Aarav Gupta <amronos275@gmail.com>
+* Update cart demos to use joint_trajectory_controller (`#486 <https://github.com/ros-controls/gz_ros2_control/issues/486>`_) (`#489 <https://github.com/ros-controls/gz_ros2_control/issues/489>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  (cherry picked from commit 11fc5ddce5bd8fd80a6792d15edd73179f1a8105)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Use files from demos for testing (`#485 <https://github.com/ros-controls/gz_ros2_control/issues/485>`_) (`#487 <https://github.com/ros-controls/gz_ros2_control/issues/487>`_)
+  (cherry picked from commit a12ef5a67a18522a618f2848625103d33df73fb8)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Contributors: mergify[bot]
+
+1.2.10 (2025-01-15)
+-------------------
+* Fix ackermann demo (`#470 <https://github.com/ros-controls/gz_ros2_control/issues/470>`_) (`#475 <https://github.com/ros-controls/gz_ros2_control/issues/475>`_)
+* Add a namespaced example (`#457 <https://github.com/ros-controls/gz_ros2_control/issues/457>`_) (`#460 <https://github.com/ros-controls/gz_ros2_control/issues/460>`_)
+* Update diff_drive controller parameters (`#462 <https://github.com/ros-controls/gz_ros2_control/issues/462>`_) (`#464 <https://github.com/ros-controls/gz_ros2_control/issues/464>`_)
+* Add Demos for SDF (`#427 <https://github.com/ros-controls/gz_ros2_control/issues/427>`_) (`#465 <https://github.com/ros-controls/gz_ros2_control/issues/465>`_)
+* Contributors: mergify[bot]
+
 1.2.9 (2024-12-11)
 ------------------
 * Add Mecanum vehicle example (`#451 <https://github.com/ros-controls/gz_ros2_control/issues/451>`_) (`#455 <https://github.com/ros-controls/gz_ros2_control/issues/455>`_)
