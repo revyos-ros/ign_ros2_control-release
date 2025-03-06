@@ -1,0 +1,12 @@
+Source: ros-jazzy-gz-ros2-control-demos
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernandez <ahcorde@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ament-cmake, ros-jazzy-ament-cmake-gtest <!nocheck>, ros-jazzy-ament-lint-auto <!nocheck>, ros-jazzy-ament-lint-common <!nocheck>, ros-jazzy-control-msgs, ros-jazzy-geometry-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-action, ros-jazzy-std-msgs, ros-jazzy-ros-workspace
+Homepage: https://github.com/ros-controls/gz_ros2_control/blob/master/README.md
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-gz-ros2-control-demos
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-ackermann-steering-controller, ros-jazzy-ament-index-python, ros-jazzy-control-msgs, ros-jazzy-diff-drive-controller, ros-jazzy-effort-controllers, ros-jazzy-geometry-msgs, ros-jazzy-gz-ros2-control, ros-jazzy-hardware-interface, ros-jazzy-imu-sensor-broadcaster, ros-jazzy-joint-state-broadcaster, ros-jazzy-joint-trajectory-controller, ros-jazzy-launch, ros-jazzy-launch-ros, ros-jazzy-mecanum-drive-controller, ros-jazzy-rclcpp, ros-jazzy-robot-state-publisher, ros-jazzy-ros-gz-bridge, ros-jazzy-ros-gz-sim, ros-jazzy-ros2controlcli, ros-jazzy-ros2launch, ros-jazzy-std-msgs, ros-jazzy-tricycle-controller, ros-jazzy-velocity-controllers, ros-jazzy-xacro, ros-jazzy-ros-workspace
+Description: gz_ros2_control_demos
