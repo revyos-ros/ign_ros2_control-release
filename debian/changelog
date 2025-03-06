@@ -1,0 +1,264 @@
+ros-jazzy-gz-ros2-control (1.2.11-1noble) noble; urgency=high
+
+  * Add remap option to controller manager (#442 <https://github.com/ros-controls/gz_ros2_control/issues/442>)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+  * Contributors: Tatsuro Sakaguchi
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Wed, 19 Feb 2025 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.10-1noble) noble; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Wed, 15 Jan 2025 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.9-1noble) noble; urgency=high
+
+  * use gz-physics`#283 <https://github.com/ros-controls/gz_ros2_control/issues/283>`_ to implement joint_states/effort feedback (#186 <https://github.com/ros-controls/gz_ros2_control/issues/186>)
+  * Contributors: Andreas Bihlmaier
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Wed, 11 Dec 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.8-1noble) noble; urgency=high
+
+  * Parse position_proportional_gain parameter from URDF and update docs (#393 <https://github.com/ros-controls/gz_ros2_control//issues/393>) (#410 <https://github.com/ros-controls/gz_ros2_control//issues/410>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+    (cherry picked from commit 8cecc69b7aa698dfd996ae545c186a42b6799d87)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * propagate gazebo remapping and other arguments to the controller node (#396 <https://github.com/ros-controls/gz_ros2_control//issues/396>) (#397 <https://github.com/ros-controls/gz_ros2_control//issues/397>)
+    (cherry picked from commit cbdd3a3fc6dcb49072b501984c3294a20872dcd8)
+    Co-authored-by: Sai Kishor Kothakota <mailto:sai.kishor@pal-robotics.com>
+  * Contributors: mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Mon, 28 Oct 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.6-1noble) noble; urgency=high
+
+  * Propagate the node clock and logging interface (#368 <https://github.com/ros-controls/gz_ros2_control/issues/368>) (#373 <https://github.com/ros-controls/gz_ros2_control/issues/373>)
+    (cherry picked from commit a1d9bd46fc491c0de35f86f9c14c1620cbcdb037)
+    Co-authored-by: Sai Kishor Kothakota <mailto:sai.kishor@pal-robotics.com>
+  * Contributors: mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 09 Jul 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.5-1noble) noble; urgency=high
+
+  * Simplify access for robot description from CM by overriding RM. (#265 <https://github.com/ros-controls/gz_ros2_control/issues/265>) (#364 <https://github.com/ros-controls/gz_ros2_control/issues/364>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+    Co-authored-by: Sai Kishor Kothakota <mailto:saisastra3@gmail.com>
+    (cherry picked from commit ced470bf20d4e9313f76582eda4a28f7fc6a6a11)
+    Co-authored-by: Dr. Denis <mailto:denis@stoglrobotics.de>
+  * Update docs and cleanup member of GazeboSimROS2ControlPluginPrivate (#363 <https://github.com/ros-controls/gz_ros2_control/issues/363>) (#367 <https://github.com/ros-controls/gz_ros2_control/issues/367>)
+    (cherry picked from commit 9257ad3973e2aebf9756c7a8154efb9673ed1a43)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+  * Contributors: mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 09 Jul 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.4-1noble) noble; urgency=high
+
+  * Don't crash if a wrong config was detected (#324 <https://github.com/ros-controls/gz_ros2_control/issues/324>) (#331 <https://github.com/ros-controls/gz_ros2_control/issues/331>)
+    (cherry picked from commit ec1b95893fa933cb3e2cc5341bb65dd621645785)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * Harden behavior if a joint is not found in the model (#325 <https://github.com/ros-controls/gz_ros2_control/issues/325>) (#333 <https://github.com/ros-controls/gz_ros2_control/issues/333>)
+    * Don't crash if a joint does not exist
+    (cherry picked from commit 5d2d5eb6c867875c3c8d00a03cd472eac176e67c)
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * Changed to use spin instead of spin_once to enable multithreading with MultiThreadedExecutor (#315 <https://github.com/ros-controls/gz_ros2_control/issues/315>) (#319 <https://github.com/ros-controls/gz_ros2_control/issues/319>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+    (cherry picked from commit 45035076408e6014cc911e8d4bc169572a25008c)
+    Co-authored-by: Takashi Sato <mailto:t.sato17123@gmail.com>
+  * Contributors: mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Sun, 02 Jun 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.3-1noble) noble; urgency=high
+
+  * Use Gazebo ROS vendor packages (#277 <https://github.com/ros-controls/gz_ros2_control/issues/277>)
+  * fixed target of ament_export_libraries (#295 <https://github.com/ros-controls/gz_ros2_control/issues/295>)
+  * fixed install include (#294 <https://github.com/ros-controls/gz_ros2_control/issues/294>)
+  * Added parameters robot_param and robot_param_node (#275 <https://github.com/ros-controls/gz_ros2_control/issues/275>) (#280 <https://github.com/ros-controls/gz_ros2_control/issues/280>)
+    (cherry picked from commit 53b6c74b02bf85860854a37f429b6e2ecf22a4be)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * Rewrite mimic joints (#276 <https://github.com/ros-controls/gz_ros2_control/issues/276>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * Fixed linter (#264 <https://github.com/ros-controls/gz_ros2_control/issues/264>)
+  * Fix #259 <https://github.com/ros-controls/gz_ros2_control/issues/259> - ParameterAlreadyDeclaredException for parameter position_proportional_gain (#261 <https://github.com/ros-controls/gz_ros2_control/issues/261>)
+  * Contributors: Addisu Z. Taddese, Alejandro Hernández Cordero, Christoph Fröhlich, Patrick Roncagliolo, Takashi Sato, mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 14 May 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.2-1noble) noble; urgency=high
+
+  * Fix typo (#253 <https://github.com/ros-controls/gz_ros2_control/issues/253>)
+  * Fix #247 <https://github.com/ros-controls/gz_ros2_control/issues/247> (#248 <https://github.com/ros-controls/gz_ros2_control/issues/248>)
+  * Reset Gazebo with initial joint positions and velocities (#241 <https://github.com/ros-controls/gz_ros2_control/issues/241>)
+  * Use portable versio for usleep (#237 <https://github.com/ros-controls/gz_ros2_control/issues/237>)
+  * Fix crashing due to an invalid parameter in the initial value (#233 <https://github.com/ros-controls/gz_ros2_control/issues/233>)
+  * Contributors: Alejandro Hernández Cordero, Graziato Davide, Ruddick Lawrence, Stephanie Eng
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Thu, 21 Mar 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.1-1noble) noble; urgency=high
+
+  * Load the URDF to the resource_manager before parsing it to CM (#222 <https://github.com/ros-controls/gz_ros2_control/issues/222>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * Use own implementation of stod() (#220 <https://github.com/ros-controls/gz_ros2_control/issues/220>)
+    Co-authored-by: Alejandro Hernández Cordero <mailto:ahcorde@gmail.com>
+  * Contributors: Christoph Fröhlich, Sai Kishor Kothakota
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Wed, 24 Jan 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.2.0-1noble) noble; urgency=high
+
+  * Add controller name parameter (backport #212 <https://github.com/ros-controls/gz_ros2_control/issues/212>) (#216 <https://github.com/ros-controls/gz_ros2_control/issues/216>)
+    Co-authored-by: Jakub Delicat <mailto:109142865+delihus@users.noreply.github.com>
+    Co-authored-by: Alejandro Hernandez Cordero <mailto:ahcorde@gmail.com>
+  * Add hold_joints parameter (#213 <https://github.com/ros-controls/gz_ros2_control/issues/213>)
+  * Fix stuck passive joints (#184 <https://github.com/ros-controls/gz_ros2_control/issues/184>)
+    * Fix stuck passive joints
+    * Update comment
+    * Fix variable naming
+    ---------
+    Co-authored-by: Christoph Fröhlich <mailto:christophfroehlich@users.noreply.github.com>
+  * Support Harmonic (#185 <https://github.com/ros-controls/gz_ros2_control/issues/185>)
+  * Contributors: Alejandro Hernández Cordero, Johannes Huemer, mergify[bot]
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Thu, 04 Jan 2024 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.1.2-1noble) noble; urgency=high
+
+  * Catch pluginlib exceptions (#175 <https://github.com/ros-controls/gz_ros2_control/issues/175>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Wed, 23 Aug 2023 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.1.1-1noble) noble; urgency=high
+
+  * Remove plugin export from ROS 1 (#158 <https://github.com/ros-controls/gz_ros2_control//issues/158>)
+  * Fixed default gazebo version in CMakeLists.txt (#156 <https://github.com/ros-controls/gz_ros2_control//issues/156>)
+  * Compile master with iron and rolling (#142 <https://github.com/ros-controls/gz_ros2_control//issues/142>)
+  * Update package.xml (#141 <https://github.com/ros-controls/gz_ros2_control//issues/141>)
+  * Contributors: Alejandro Hernández Cordero, Bence Magyar, Christoph Fröhlich
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Thu, 13 Jul 2023 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.1.0-1noble) noble; urgency=high
+
+  * Fixed segmentation fault with logger (#136 <https://github.com/ros-controls/gz_ros2_control/issues/136>)
+  * Disable ROS signal handlers (#129 <https://github.com/ros-controls/gz_ros2_control/issues/129>)
+  * Contributors: Alejandro Hernández Cordero, Carlo Rizzardo
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 23 May 2023 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (1.0.0-1noble) noble; urgency=high
+
+  * Context and Namespace Handling for Multi-Robot Sim (#128 <https://github.com/ros-controls/gz_ros2_control/issues/128>)
+  * Install include directory since it is exported (#127 <https://github.com/ros-controls/gz_ros2_control/issues/127>)
+  * Renamed ign to gz (#67 <https://github.com/ros-controls/gz_ros2_control/issues/67>)
+  * Contributors: Alejandro Hernández Cordero, Roni Kreinin, Tim Clephas
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 28 Mar 2023 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.6.1-1noble) noble; urgency=high
+
+  * Various bug fixes (#114 <https://github.com/ros-controls/gz_ros2_control/issues/114>)
+  * Contributors: AndyZe
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 07 Feb 2023 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.6.0-1noble) noble; urgency=high
+
+  * Fix API braking of hardware plugin name. (#108 <https://github.com/ros-controls/gz_ros2_control/issues/108>)
+  * Galactic to master -- Merge pull request #103 <https://github.com/ros-controls/gz_ros2_control/issues/103> from ros-controls/ahcorde/galactic_to_main_25_11_2022
+  * Force setting use_sim_time parameter when using plugin. (#100 <https://github.com/ros-controls/gz_ros2_control/issues/100>) (#102 <https://github.com/ros-controls/gz_ros2_control/issues/102>)
+  * Force setting use_sim_time parameter when using plugin. (#100 <https://github.com/ros-controls/gz_ros2_control/issues/100>)
+  * Enable loading params from multiple yaml files (#94 <https://github.com/ros-controls/gz_ros2_control/issues/94>)
+  * Add support for mimic joints. (#33 <https://github.com/ros-controls/gz_ros2_control/issues/33>)
+  * Set right initial velocity (#81 <https://github.com/ros-controls/gz_ros2_control/issues/81>)
+  * Contributors: Alejandro Hernández Cordero, Denis Štogl, Lovro Ivanov
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Fri, 06 Jan 2023 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.5.0-1noble) noble; urgency=high
+
+  * Fix setting initial values if command interfaces are not defined. (#73 <https://github.com/ros-controls/gz_ros2_control/issues/73>)
+  * activated all hardware by default and improved variable naming (#74 <https://github.com/ros-controls/gz_ros2_control/issues/74>)
+  * Implemented perform_command_mode_switch override in GazeboSystem (#76 <https://github.com/ros-controls/gz_ros2_control/issues/76>)
+  * Remove warnings (#72 <https://github.com/ros-controls/gz_ros2_control/issues/72>)
+  * change component name for ignition (#69 <https://github.com/ros-controls/gz_ros2_control/issues/69>)
+  * Added logic for activating hardware interfaces (#68 <https://github.com/ros-controls/gz_ros2_control/issues/68>)
+  * Merge branch 'foxy' into ahcorde/foxy_to_galactic_27_05_2022
+  * Adapt to ROS 2 Humble
+  * typo in citadel name (#51 <https://github.com/ros-controls/gz_ros2_control/issues/51>)
+  * ros2_control is now having usings under its namespace. (#43 <https://github.com/ros-controls/gz_ros2_control/issues/43>)
+  * Fix default ign gazebo version Rolling (#45 <https://github.com/ros-controls/gz_ros2_control/issues/45>)
+  * Fix ignition version in package.xml - Rolling (#41 <https://github.com/ros-controls/gz_ros2_control/issues/41>)
+  * Add support for initial_values for hardware interfaces when starting simulation. (#27 <https://github.com/ros-controls/gz_ros2_control/issues/27>)
+  * Contributors: Alejandro Hernández Cordero, Denis Štogl, Guillaume Beuzeboc, Tianyu Li
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Tue, 09 Aug 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.4.1-1noble) noble; urgency=high
+
+  * Remove URDF dependency (#56 <https://github.com/ignitionrobotics/ign_ros2_control/issues/56>)
+  * typo in citadel name (#54 <https://github.com/ignitionrobotics/ign_ros2_control/issues/54>)
+  * Contributors: Alejandro Hernández Cordero, Guillaume Beuzeboc, ahcorde
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Mon, 06 Jun 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.4.0-1noble) noble; urgency=high
+
+  * Fix default ign gazebo version Galactic (#44 <https://github.com/ignitionrobotics/ign_ros2_control/issues/44>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Fri, 18 Mar 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.3.0-1noble) noble; urgency=high
+
+  * Fix ignition version in package.xml (#40 <https://github.com/ignitionrobotics/ign_ros2_control/issues/40>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Wed, 16 Mar 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.2.0-1noble) noble; urgency=high
+
+  * Merge pull request #36 <https://github.com/ignitionrobotics/ign_ros2_control/issues/36> from ignitionrobotics/ahcorde/foxy_to_galactic
+    Foxy -> Galactic
+  * Merge remote-tracking branch 'origin/foxy' into ahcorde/foxy_to_galactic
+  * typo fix. (#25 <https://github.com/ignitionrobotics/ign_ros2_control/issues/25>)
+  * Contributors: Alejandro Hernández Cordero, Tomoya Fujita
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Thu, 17 Feb 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.1.2-1noble) noble; urgency=high
+
+  * Fixed position control (#29 <https://github.com/ignitionrobotics/ign_ros2_control/issues/29>) (#34 <https://github.com/ignitionrobotics/ign_ros2_control/issues/34>)
+  * typo fix. (#25 <https://github.com/ignitionrobotics/ign_ros2_control/issues/25>) (#26 <https://github.com/ignitionrobotics/ign_ros2_control/issues/26>)
+    Co-authored-by: Tomoya Fujita <mailto:Tomoya.Fujita@sony.com>
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Mon, 14 Feb 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.1.1-1noble) noble; urgency=high
+
+  * Change package names from ignition_ to ign_ (#19 <https://github.com/ignitionrobotics/ign_ros2_control/pull/22>)
+    * Change package names from ignition_ to ign_
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Fri, 07 Jan 2022 00:00:00 -0000
+
+ros-jazzy-gz-ros2-control (0.1.0-1noble) noble; urgency=high
+
+  * Ignition ros2 control (#1 <https://github.com/ignitionrobotics/ign_ros2_control/issues/1>)
+    Co-authored-by: ahcorde <mailto:ahcorde@gmail.com>
+    Co-authored-by: Louise Poubel <mailto:louise@openrobotics.org>
+    Co-authored-by: Vatan Aksoy Tezer <mailto:vatan@picknik.ai>
+  * Contributors: Alejandro Hernández Cordero, Louise Poubel, Vatan Aksoy Tezer
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Fri, 07 Jan 2022 00:00:00 -0000
+
+
