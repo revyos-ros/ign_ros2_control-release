@@ -2,6 +2,15 @@
 Changelog for package ign_ros2_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.11 (2025-02-19)
+-------------------
+* Add remap option to controller manager (`#442 <https://github.com/ros-controls/gz_ros2_control/issues/442>`_)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Contributors: Tatsuro Sakaguchi
+
+1.2.10 (2025-01-15)
+-------------------
+
 1.2.9 (2024-12-11)
 ------------------
 
