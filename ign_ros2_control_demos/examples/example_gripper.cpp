@@ -15,47 +15,34 @@
 // Author: Denis Štogl (Stogl Robotics Consulting)
 //
 
-#include <memory>
-#include <string>
-#include <vector>
+// Shim to redirect "ign_ros2_control_demos example_gripper" call
+// to "gz_ros2_control_demos example_gripper"
 
-#include "rclcpp/rclcpp.hpp"
+#include <stdlib.h>
 
-#include "std_msgs/msg/float64_multi_array.hpp"
+#include <sstream>
+#include <iostream>
 
-std::shared_ptr<rclcpp::Node> node;
+#include <ament_index_cpp/get_package_prefix.hpp>
+
 
 int main(int argc, char * argv[])
 {
-  rclcpp::init(argc, argv);
+  std::stringstream cli_call;
 
-  node = std::make_shared<rclcpp::Node>("gripper_test_node");
+  cli_call << ament_index_cpp::get_package_prefix("gz_ros2_control_demos")
+           << "/lib/gz_ros2_control_demos/example_gripper";
 
-  auto publisher = node->create_publisher<std_msgs::msg::Float64MultiArray>(
-    "/gripper_controller/commands", 10);
+  if (argc > 1) {
+    for (int i = 1; i < argc; i++) {
+      cli_call << " " << argv[i];
+    }
+  }
 
-  RCLCPP_INFO(node->get_logger(), "node created");
-
-  std_msgs::msg::Float64MultiArray commands;
-
-  using namespace std::chrono_literals;
-
-  commands.data.push_back(0);
-  publisher->publish(commands);
-  std::this_thread::sleep_for(1s);
-
-  commands.data[0] = 0.38;
-  publisher->publish(commands);
-  std::this_thread::sleep_for(1s);
-
-  commands.data[0] = 0.19;
-  publisher->publish(commands);
-  std::this_thread::sleep_for(1s);
-
-  commands.data[0] = 0;
-  publisher->publish(commands);
-  std::this_thread::sleep_for(1s);
-  rclcpp::shutdown();
+  std::cerr << "[ign_ros2_control_demos] is deprecated! "
+            << "Redirecting to use [gz_ros2_control_demos] instead!"
+            << std::endl << std::endl;
+  system(cli_call.str().c_str());
 
   return 0;
 }
