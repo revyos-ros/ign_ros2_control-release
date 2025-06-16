@@ -16,61 +16,52 @@ if(NOT WIN32)
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(control_msgs REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(rclcpp_action REQUIRED)
-find_package(std_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 
 install(DIRECTORY
   launch
-  config
   urdf
   DESTINATION share/${PROJECT_NAME}/
 )
 
+
 add_executable(example_position examples/example_position.cpp)
 ament_target_dependencies(example_position
-  rclcpp
-  rclcpp_action
-  control_msgs
+  ament_index_cpp
 )
 
-add_executable(example_velocity examples/example_velocity.cpp)
+# use the same example_position.cpp for example_velocity
+add_executable(example_velocity examples/example_position.cpp)
 ament_target_dependencies(example_velocity
-  rclcpp
-  std_msgs
+  ament_index_cpp
 )
 
-add_executable(example_effort examples/example_effort.cpp)
+# use the same example_position.cpp for example_effort
+add_executable(example_effort examples/example_position.cpp)
 ament_target_dependencies(example_effort
-  rclcpp
-  std_msgs
+  ament_index_cpp
 )
 
 add_executable(example_diff_drive examples/example_diff_drive.cpp)
 ament_target_dependencies(example_diff_drive
-  rclcpp
-  geometry_msgs
+  ament_index_cpp
 )
 
 add_executable(example_tricycle_drive examples/example_tricycle_drive.cpp)
 ament_target_dependencies(example_tricycle_drive
-  rclcpp
-  geometry_msgs
+  ament_index_cpp
 )
 
 add_executable(example_ackermann_drive examples/example_ackermann_drive.cpp)
 ament_target_dependencies(example_ackermann_drive
-  rclcpp
-  geometry_msgs
+  ament_index_cpp
 )
 
 add_executable(example_gripper examples/example_gripper.cpp)
 ament_target_dependencies(example_gripper
-  rclcpp
-  std_msgs
+  ament_index_cpp
 )
+
 
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
