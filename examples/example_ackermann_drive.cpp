@@ -12,51 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <chrono>
-#include <memory>
+// Shim to redirect "ign_ros2_control_demos example_ackermann_drive" call
+// to "gz_ros2_control_demos example_ackermann_drive"
 
-#include <rclcpp/rclcpp.hpp>
+#include <stdlib.h>
 
-#include <geometry_msgs/msg/twist_stamped.hpp>
+#include <sstream>
+#include <iostream>
 
-using namespace std::chrono_literals;
+#include <ament_index_cpp/get_package_prefix.hpp>
+
 
 int main(int argc, char * argv[])
 {
-  rclcpp::init(argc, argv);
+  std::stringstream cli_call;
 
-  std::shared_ptr<rclcpp::Node> node =
-    std::make_shared<rclcpp::Node>("ackermann_drive_test_node");
+  cli_call << ament_index_cpp::get_package_prefix("gz_ros2_control_demos")
+           << "/lib/gz_ros2_control_demos/example_ackermann_drive";
 
-  node->set_parameter(rclcpp::Parameter("use_sim_time", true));
-
-  auto publisher = node->create_publisher<geometry_msgs::msg::TwistStamped>(
-    "/ackermann_steering_controller/reference", 10);
-
-  RCLCPP_INFO(node->get_logger(), "node created");
-
-  geometry_msgs::msg::Twist tw;
-
-  tw.linear.x = 0.5;
-  tw.linear.y = 0.0;
-  tw.linear.z = 0.0;
-
-  tw.angular.x = 0.0;
-  tw.angular.y = 0.0;
-  tw.angular.z = 0.3;
-
-  geometry_msgs::msg::TwistStamped command;
-  command.twist = tw;
-
-  while (1) {
-    rclcpp::spin_some(node);
-    if (node->get_clock()->started()) {
-      command.header.stamp = node->now();
-      publisher->publish(command);
+  if (argc > 1) {
+    for (int i = 1; i < argc; i++) {
+      cli_call << " " << argv[i];
     }
-    std::this_thread::sleep_for(50ms);
   }
-  rclcpp::shutdown();
+
+  std::cerr << "[ign_ros2_control_demos] is deprecated! "
+            << "Redirecting to use [gz_ros2_control_demos] instead!"
+            << std::endl << std::endl;
+  system(cli_call.str().c_str());
 
   return 0;
 }
