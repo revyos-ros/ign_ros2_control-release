@@ -1,0 +1,22 @@
+ros-humble-gz-ros2-control-tests (0.7.15-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Fri, 23 May 2025 00:00:00 -0000
+
+ros-humble-gz-ros2-control-tests (0.7.14-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Mon, 21 Apr 2025 00:00:00 -0000
+
+ros-humble-gz-ros2-control-tests (0.7.13-1bookworm) bookworm; urgency=high
+
+  * Add shim to deprecated ign_ros2_control_demos package (#524 <https://github.com/ros-controls/gz_ros2_control/issues/524>)
+  * Backport updates to demos and tests (#399 <https://github.com/ros-controls/gz_ros2_control/issues/399>, #485 <https://github.com/ros-controls/gz_ros2_control/issues/485>, #486 <https://github.com/ros-controls/gz_ros2_control/issues/486>, #498 <https://github.com/ros-controls/gz_ros2_control/issues/498>, #517 <https://github.com/ros-controls/gz_ros2_control/issues/517>) (#522 <https://github.com/ros-controls/gz_ros2_control/issues/522>)
+  * Rename ign to gz (backport #67 <https://github.com/ros-controls/gz_ros2_control/issues/67>) (#515 <https://github.com/ros-controls/gz_ros2_control/issues/515>)
+  * Contributors: Christoph Fröhlich
+
+ -- Alejandro Hernández <alejandro@openrobotics.org>  Fri, 04 Apr 2025 00:00:00 -0000
+
+
