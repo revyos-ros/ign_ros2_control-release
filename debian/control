@@ -1,0 +1,12 @@
+Source: ros-humble-ign-ros2-control
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernández <alejandro@openrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-gz-ros2-control, ros-humble-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-humble-ign-ros2-control
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-gz-ros2-control, ros-humble-ros-workspace
+Description: Ignition ros2_control package allows to control simulated robots using ros2_control framework.
