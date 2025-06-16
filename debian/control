@@ -1,0 +1,12 @@
+Source: ros-humble-gz-ros2-control-demos
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernandez <ahcorde@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-control-msgs, ros-humble-geometry-msgs, ros-humble-rclcpp, ros-humble-rclcpp-action, ros-humble-std-msgs, ros-humble-ros-workspace
+Homepage: https://github.com/ros-controls/gz_ros2_control/blob/master/README.md
+Standards-Version: 3.9.2
+
+Package: ros-humble-gz-ros2-control-demos
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-ackermann-steering-controller, ros-humble-ament-index-python, ros-humble-control-msgs, ros-humble-diff-drive-controller, ros-humble-effort-controllers, ros-humble-geometry-msgs, ros-humble-gz-ros2-control, ros-humble-hardware-interface, ros-humble-imu-sensor-broadcaster, ros-humble-joint-state-broadcaster, ros-humble-joint-trajectory-controller, ros-humble-launch, ros-humble-launch-ros, ros-humble-mecanum-drive-controller, ros-humble-rclcpp, ros-humble-robot-state-publisher, ros-humble-ros-gz-bridge, ros-humble-ros-gz-sim, ros-humble-ros2controlcli, ros-humble-ros2launch, ros-humble-std-msgs, ros-humble-tricycle-controller, ros-humble-velocity-controllers, ros-humble-xacro, ros-humble-ros-workspace
+Description: gz_ros2_control_demos
