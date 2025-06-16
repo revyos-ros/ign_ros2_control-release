@@ -12,42 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <memory>
+// Shim to redirect "ign_ros2_control_demos example_tricycle_drive" call
+// to "gz_ros2_control_demos example_tricycle_drive"
 
-#include <rclcpp/rclcpp.hpp>
+#include <stdlib.h>
 
-#include <geometry_msgs/msg/twist.hpp>
+#include <sstream>
+#include <iostream>
 
-using namespace std::chrono_literals;
+#include <ament_index_cpp/get_package_prefix.hpp>
+
 
 int main(int argc, char * argv[])
 {
-  rclcpp::init(argc, argv);
+  std::stringstream cli_call;
 
-  std::shared_ptr<rclcpp::Node> node =
-    std::make_shared<rclcpp::Node>("tricycle_drive_test_node");
+  cli_call << ament_index_cpp::get_package_prefix("gz_ros2_control_demos")
+           << "/lib/gz_ros2_control_demos/example_tricycle_drive";
 
-  auto publisher = node->create_publisher<geometry_msgs::msg::Twist>(
-    "/tricycle_controller/cmd_vel", 10);
-
-  RCLCPP_INFO(node->get_logger(), "node created");
-
-  geometry_msgs::msg::Twist command;
-
-  command.linear.x = 0.2;
-  command.linear.y = 0.0;
-  command.linear.z = 0.0;
-
-  command.angular.x = 0.0;
-  command.angular.y = 0.0;
-  command.angular.z = 0.1;
-
-  while (1) {
-    publisher->publish(command);
-    std::this_thread::sleep_for(50ms);
-    rclcpp::spin_some(node);
+  if (argc > 1) {
+    for (int i = 1; i < argc; i++) {
+      cli_call << " " << argv[i];
+    }
   }
-  rclcpp::shutdown();
+
+  std::cerr << "[ign_ros2_control_demos] is deprecated! "
+            << "Redirecting to use [gz_ros2_control_demos] instead!"
+            << std::endl << std::endl;
+  system(cli_call.str().c_str());
 
   return 0;
 }
