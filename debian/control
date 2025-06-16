@@ -1,0 +1,12 @@
+Source: ros-humble-ign-ros2-control-demos
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernandez <ahcorde@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-ament-index-cpp, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-gz-ros2-control-demos, ros-humble-ros-workspace
+Homepage: https://github.com/ros-controls/gz_ros2_control/blob/master/README.md
+Standards-Version: 3.9.2
+
+Package: ros-humble-ign-ros2-control-demos
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-ament-index-cpp, ros-humble-gz-ros2-control-demos, ros-humble-launch, ros-humble-launch-ros, ros-humble-ros-workspace
+Description: Shim package for gz_ros2_control_demos
