@@ -1,0 +1,20 @@
+ros-humble-ign-ros2-control (0.7.15-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Fri, 23 May 2025 00:00:00 -0000
+
+ros-humble-ign-ros2-control (0.7.14-1bookworm) bookworm; urgency=high
+
+
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Mon, 21 Apr 2025 00:00:00 -0000
+
+ros-humble-ign-ros2-control (0.7.13-1bookworm) bookworm; urgency=high
+
+  * Rename ign to gz (backport #67 <https://github.com/ros-controls/gz_ros2_control/issues/67>) (#515 <https://github.com/ros-controls/gz_ros2_control/issues/515>)
+  * Contributors: Christoph Fröhlich
+
+ -- Alejandro Hernández <alejandro@openrobotics.com>  Fri, 04 Apr 2025 00:00:00 -0000
+
+
