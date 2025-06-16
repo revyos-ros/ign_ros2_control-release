@@ -45,7 +45,7 @@ def generate_test_description():
     launch_include = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory('gz_ros2_control_demos'),
+                get_package_share_directory('ign_ros2_control_demos'),
                 'launch/cart_example_position.launch.py',
             )
         ),
@@ -100,7 +100,7 @@ class TestFixture(unittest.TestCase):
         check_controllers_running(self.node, cnames)
 
         proc_action = Node(
-            package='gz_ros2_control_demos',
+            package='ign_ros2_control_demos',
             executable='example_position',
             output='screen',
         )
