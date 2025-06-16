@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -27,35 +27,31 @@ def generate_launch_description():
     # Launch Arguments
     use_sim_time = LaunchConfiguration('use_sim_time', default=True)
 
-    def robot_state_publisher(context):
-        performed_description_format = LaunchConfiguration('description_format').perform(context)
-        # Get URDF or SDF via xacro
-        robot_description_content = Command(
-            [
-                PathJoinSubstitution([FindExecutable(name='xacro')]),
-                ' ',
-                PathJoinSubstitution([
-                    FindPackageShare('gz_ros2_control_demos'),
-                    performed_description_format,
-                    f'test_diff_drive.xacro.{performed_description_format}'
-                ]),
-            ]
-        )
-        robot_description = {'robot_description': robot_description_content}
-        node_robot_state_publisher = Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            output='screen',
-            parameters=[robot_description]
-        )
-        return [node_robot_state_publisher]
-
+    # Get URDF via xacro
+    robot_description_content = Command(
+        [
+            PathJoinSubstitution([FindExecutable(name='xacro')]),
+            ' ',
+            PathJoinSubstitution(
+                [FindPackageShare('gz_ros2_control_demos'),
+                 'urdf', 'test_diff_drive.xacro.urdf']
+            ),
+        ]
+    )
+    robot_description = {'robot_description': robot_description_content}
     robot_controllers = PathJoinSubstitution(
         [
             FindPackageShare('gz_ros2_control_demos'),
             'config',
             'diff_drive_controller.yaml',
         ]
+    )
+
+    node_robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[robot_description]
     )
 
     gz_spawn_entity = Node(
@@ -89,7 +85,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    ld = LaunchDescription([
+    return LaunchDescription([
         # Launch gazebo environment
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -110,16 +106,11 @@ def generate_launch_description():
             )
         ),
         bridge,
+        node_robot_state_publisher,
         gz_spawn_entity,
         # Launch Arguments
         DeclareLaunchArgument(
             'use_sim_time',
             default_value=use_sim_time,
             description='If true, use simulated clock'),
-        DeclareLaunchArgument(
-            'description_format',
-            default_value='urdf',
-            description='Robot description format to use, urdf or sdf'),
     ])
-    ld.add_action(OpaqueFunction(function=robot_state_publisher))
-    return ld

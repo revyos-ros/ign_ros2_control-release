@@ -21,8 +21,13 @@
 #include <string>
 #include <vector>
 
+#ifdef GZ_HEADERS
 #include <gz/sim/System.hh>
 namespace sim = gz::sim;
+#else
+#include <ignition/gazebo/System.hh>
+namespace sim = ignition::gazebo;
+#endif
 
 #include <hardware_interface/system_interface.hpp>
 #include <hardware_interface/types/hardware_interface_type_values.hpp>
@@ -88,7 +93,7 @@ public:
     std::map<std::string, sim::Entity> & joints,
     const hardware_interface::HardwareInfo & hardware_info,
     sim::EntityComponentManager & _ecm,
-    unsigned int update_rate) = 0;
+    int & update_rate) = 0;
 
   // Methods used to control a joint.
   enum ControlMethod_
