@@ -1,0 +1,12 @@
+Source: ros-humble-gz-ros2-control-tests
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernández <alejandro@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), python3-psutil <!nocheck>, python3-pytest <!nocheck>, ros-humble-ament-cmake, ros-humble-ament-index-python <!nocheck>, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-controller-manager <!nocheck>, ros-humble-gz-ros2-control-demos <!nocheck>, ros-humble-ign-ros2-control-demos <!nocheck>, ros-humble-launch <!nocheck>, ros-humble-launch-ros <!nocheck>, ros-humble-launch-testing-ament-cmake <!nocheck>, ros-humble-launch-testing-ros <!nocheck>, ros-humble-rclpy <!nocheck>, ros-humble-ros2launch <!nocheck>, ros-humble-rosgraph-msgs <!nocheck>, ros-humble-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-humble-gz-ros2-control-tests
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-ros-workspace
+Description: Gazebo ros2 control tests
