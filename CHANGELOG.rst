@@ -2,6 +2,19 @@
 Changelog for package ign_ros2_control_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.13 (2025-05-23)
+-------------------
+* Fix ackermann demo (`#582 <https://github.com/ros-controls/gz_ros2_control/issues/582>`_) (`#584 <https://github.com/ros-controls/gz_ros2_control/issues/584>`_)
+* Update parameters for steering_controllers_library (`#566 <https://github.com/ros-controls/gz_ros2_control/issues/566>`_) (`#573 <https://github.com/ros-controls/gz_ros2_control/issues/573>`_)
+* Contributors: mergify[bot]
+
+1.2.12 (2025-04-04)
+-------------------
+* Remove gtest dependency (`#543 <https://github.com/ros-controls/gz_ros2_control/issues/543>`_) (`#544 <https://github.com/ros-controls/gz_ros2_control/issues/544>`_)
+* Don't access node after reset (`#514 <https://github.com/ros-controls/gz_ros2_control/issues/514>`_) (`#516 <https://github.com/ros-controls/gz_ros2_control/issues/516>`_)
+* Remap to /tf (`#506 <https://github.com/ros-controls/gz_ros2_control/issues/506>`_) (`#507 <https://github.com/ros-controls/gz_ros2_control/issues/507>`_)
+* Contributors: mergify[bot]
+
 1.2.11 (2025-02-19)
 -------------------
 * Update diff_drive_controller.yaml (`#494 <https://github.com/ros-controls/gz_ros2_control/issues/494>`_) (`#496 <https://github.com/ros-controls/gz_ros2_control/issues/496>`_)
