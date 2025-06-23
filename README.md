@@ -1,3 +1,31 @@
+## gz_ros2_control (jazzy) - 1.2.13-1
+
+The packages in the `gz_ros2_control` repository were released into the `jazzy` distro by running `/root/venv/bin/bloom-release -r jazzy gz_ros2_control --override-release-repository-push-url git@github.com:revyos-ros/ign_ros2_control-release.git` on `Mon, 23 Jun 2025 06:56:21 -0000`
+
+These packages were released:
+- `gz_ros2_control`
+- `gz_ros2_control_demos`
+
+These packages were explicitly ignored:
+- `gz_ros2_control_tests`
+
+Version of package(s) in repository `gz_ros2_control`:
+
+- upstream repository: https://github.com/ros-controls/gz_ros2_control
+- release repository: https://github.com/revyos-ros/ign_ros2_control-release.git
+- rosdistro version: `1.2.13-1`
+- old version: `1.2.11-1`
+- new version: `1.2.13-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## ign_ros2_control (humble) - 0.7.15-1
 
 The packages in the `ign_ros2_control` repository were released into the `humble` distro by running `/home/z572/gits/revyos-ros/venv/bin/bloom-release -r humble ign_ros2_control --override-release-repository-push-url git@github.com:revyos-ros/ign_ros2_control-release.git` on `Mon, 16 Jun 2025 04:46:16 -0000`
