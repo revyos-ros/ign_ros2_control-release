@@ -1,7 +1,7 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV ROS_DISTRO humble
+ENV ROS_DISTRO rolling
 
 # Make sure everything is up to date before building from source
 RUN apt-get update \

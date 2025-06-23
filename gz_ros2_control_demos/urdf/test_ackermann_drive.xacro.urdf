@@ -188,7 +188,7 @@
     <dynamics damping="0.2" />
   </joint>
 
-  <ros2_control name="GazeboSimSystem" type="system">
+  <ros2_control name="GazeboSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>

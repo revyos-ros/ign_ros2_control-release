@@ -37,7 +37,7 @@ def generate_launch_description():
             ' ',
             PathJoinSubstitution(
                 [FindPackageShare('gz_ros2_control_demos'),
-                 'urdf', 'test_gripper_mimic_joint.xacro.urdf']
+                 'urdf', 'test_gripper_mimic_joint_position.xacro.urdf']
             ),
         ]
     )
@@ -46,7 +46,7 @@ def generate_launch_description():
         [
             FindPackageShare('gz_ros2_control_demos'),
             'config',
-            'gripper_controller.yaml',
+            'gripper_controller_position.yaml',
         ]
     )
 

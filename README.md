@@ -2,12 +2,12 @@
 
 License | Build Status | Package build
 :---------: | :----: | :----------:
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hdev__gz_ros2_control__ubuntu_jammy_amd64)](https://build.ros2.org/job/Hdev__gz_ros2_control__ubuntu_jammy_amd64/) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hbin_uJ64__gz_ros2_control__ubuntu_jammy_amd64__binary)](https://build.ros2.org/job/Hbin_uJ64__gz_ros2_control__ubuntu_jammy_amd64__binary/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jdev__gz_ros2_control__ubuntu_noble_amd64)](https://build.ros2.org/job/Jdev__gz_ros2_control__ubuntu_noble_amd64/) |  [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jbin_uN64__gz_ros2_control__ubuntu_noble_amd64__binary)](https://build.ros2.org/job/Jbin_uN64__gz_ros2_control__ubuntu_noble_amd64__binary/)
 
 This is a ROS 2 package for integrating the `ros2_control` controller architecture with the [Gazebo](http://gazebosim.org/) simulator.
 More information about `ros2_control` can be found [here](https://control.ros.org/).
 
-This package provides an Ignition Gazebo system plugin which instantiates a `ros2_control` controller manager and connects it to a Gazebo model.
+This package provides a Gazebo-Sim system plugin which instantiates a `ros2_control` controller manager and connects it to a Gazebo model.
 
 ## Compatibility Matrix
 

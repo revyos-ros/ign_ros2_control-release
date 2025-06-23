@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="cartopole">
+  <link name="world"/>
   <link name="slideBar">
     <visual>
       <geometry>
@@ -62,7 +63,11 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-
+  <joint name="world_to_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 1"/>
+    <parent link="world"/>
+    <child link="slideBar"/>
+  </joint>
   <joint name="slider_to_cart" type="prismatic">
     <axis xyz="1 0 0"/>
     <origin xyz="0.0 0.0 0.0"/>
@@ -157,12 +162,13 @@
   </gazebo>
 
   <gazebo>
+    <!-- Joint state publisher -->
     <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>$(find gz_ros2_control_demos)/config/cart_controller_velocity.yaml</parameters>
     </plugin>
     <plugin
-      filename="ignition-gazebo-imu-system"
-      name="ignition::gazebo::systems::Imu">
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
     </plugin>
   </gazebo>
 </robot>

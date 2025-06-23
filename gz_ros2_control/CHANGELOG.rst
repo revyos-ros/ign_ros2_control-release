@@ -2,155 +2,188 @@
 Changelog for package ign_ros2_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.7.15 (2025-05-23)
+1.2.13 (2025-05-23)
 -------------------
 
-0.7.14 (2025-04-21)
+1.2.12 (2025-04-04)
+-------------------
+* Set `use_sim_time` through CM NodeOptions (`#533 <https://github.com/ros-controls/gz_ros2_control/issues/533>`_) (`#538 <https://github.com/ros-controls/gz_ros2_control/issues/538>`_)
+* Make the system backward compatible with the old ign* plugins (`#520 <https://github.com/ros-controls/gz_ros2_control/issues/520>`_)
+* Contributors: Christoph Fröhlich, mergify[bot]
+
+1.2.11 (2025-02-19)
+-------------------
+* Add remap option to controller manager (`#442 <https://github.com/ros-controls/gz_ros2_control/issues/442>`_)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Contributors: Tatsuro Sakaguchi
+
+1.2.10 (2025-01-15)
 -------------------
 
-0.7.13 (2025-04-04)
--------------------
-* Rename ign to gz (backport `#67 <https://github.com/ros-controls/gz_ros2_control/issues/67>`_) (`#515 <https://github.com/ros-controls/gz_ros2_control/issues/515>`_)
-* Contributors: Christoph Fröhlich
-
-0.7.12 (2025-02-20)
--------------------
-* Remove comments in robot_description string (`#505 <https://github.com/ros-controls/gz_ros2_control/issues/505>`_)
-* Contributors: Christoph Fröhlich
-
-0.7.11 (2025-02-07)
--------------------
-
-0.7.10 (2025-02-05)
--------------------
-* Set robot description parameter for controllers (`#477 <https://github.com/ros-controls/gz_ros2_control/issues/477>`_)
-* Contributors: AB
-
-0.7.9 (2024-07-02)
+1.2.9 (2024-12-11)
 ------------------
-* Don't crash if a wrong config was detected (`#324 <https://github.com/ros-controls/gz_ros2_control/issues/324>`_) (`#330 <https://github.com/ros-controls/gz_ros2_control/issues/330>`_)
+
+* use gz-physics`#283 <https://github.com/ros-controls/gz_ros2_control/issues/283>`_ to implement joint_states/effort feedback (`#186 <https://github.com/ros-controls/gz_ros2_control/issues/186>`_)
+* Contributors: Andreas Bihlmaier
+
+1.2.8 (2024-10-28)
+------------------
+* Parse `position_proportional_gain` parameter from URDF and update docs (`#393 <https://github.com/ros-controls/gz_ros2_control//issues/393>`_) (`#410 <https://github.com/ros-controls/gz_ros2_control//issues/410>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  (cherry picked from commit 8cecc69b7aa698dfd996ae545c186a42b6799d87)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* propagate gazebo remapping and other arguments to the controller node (`#396 <https://github.com/ros-controls/gz_ros2_control//issues/396>`_) (`#397 <https://github.com/ros-controls/gz_ros2_control//issues/397>`_)
+  (cherry picked from commit cbdd3a3fc6dcb49072b501984c3294a20872dcd8)
+  Co-authored-by: Sai Kishor Kothakota <sai.kishor@pal-robotics.com>
+* Contributors: mergify[bot]
+
+1.2.6 (2024-07-09)
+------------------
+* Propagate the node clock and logging interface (`#368 <https://github.com/ros-controls/gz_ros2_control/issues/368>`_) (`#373 <https://github.com/ros-controls/gz_ros2_control/issues/373>`_)
+  (cherry picked from commit a1d9bd46fc491c0de35f86f9c14c1620cbcdb037)
+  Co-authored-by: Sai Kishor Kothakota <sai.kishor@pal-robotics.com>
+* Contributors: mergify[bot]
+
+1.2.5 (2024-07-09)
+------------------
+* Simplify access for robot description from CM by overriding RM. (`#265 <https://github.com/ros-controls/gz_ros2_control/issues/265>`_) (`#364 <https://github.com/ros-controls/gz_ros2_control/issues/364>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+  Co-authored-by: Sai Kishor Kothakota <saisastra3@gmail.com>
+  (cherry picked from commit ced470bf20d4e9313f76582eda4a28f7fc6a6a11)
+  Co-authored-by: Dr. Denis <denis@stoglrobotics.de>
+* Update docs and cleanup member of `GazeboSimROS2ControlPluginPrivate` (`#363 <https://github.com/ros-controls/gz_ros2_control/issues/363>`_) (`#367 <https://github.com/ros-controls/gz_ros2_control/issues/367>`_)
+  (cherry picked from commit 9257ad3973e2aebf9756c7a8154efb9673ed1a43)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+* Contributors: mergify[bot]
+
+1.2.4 (2024-06-02)
+------------------
+* Don't crash if a wrong config was detected (`#324 <https://github.com/ros-controls/gz_ros2_control/issues/324>`_) (`#331 <https://github.com/ros-controls/gz_ros2_control/issues/331>`_)
   (cherry picked from commit ec1b95893fa933cb3e2cc5341bb65dd621645785)
   Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
   Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-* Harden behavior if a joint is not found in the model (backport `#325 <https://github.com/ros-controls/gz_ros2_control/issues/325>`_) (`#326 <https://github.com/ros-controls/gz_ros2_control/issues/326>`_)
+* Harden behavior if a joint is not found in the model (`#325 <https://github.com/ros-controls/gz_ros2_control/issues/325>`_) (`#333 <https://github.com/ros-controls/gz_ros2_control/issues/333>`_)
   * Don't crash if a joint does not exist
-* Changed to use spin instead of spin_once to enable multithreading with MultiThreadedExecutor (`#315 <https://github.com/ros-controls/gz_ros2_control/issues/315>`_) (`#320 <https://github.com/ros-controls/gz_ros2_control/issues/320>`_)
+  (cherry picked from commit 5d2d5eb6c867875c3c8d00a03cd472eac176e67c)
+  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Changed to use spin instead of spin_once to enable multithreading with MultiThreadedExecutor (`#315 <https://github.com/ros-controls/gz_ros2_control/issues/315>`_) (`#319 <https://github.com/ros-controls/gz_ros2_control/issues/319>`_)
   Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
   (cherry picked from commit 45035076408e6014cc911e8d4bc169572a25008c)
   Co-authored-by: Takashi Sato <t.sato17123@gmail.com>
-* Contributors: Christoph Fröhlich, mergify[bot]
+* Contributors: mergify[bot]
 
-0.7.8 (2024-05-14)
+1.2.3 (2024-05-14)
 ------------------
-* Fixed target of ament_export_libraries (`#300 <https://github.com/ros-controls/gz_ros2_control/issues/300>`_)
-* Added parameters robot_param and robot_param_node (`#275 <https://github.com/ros-controls/gz_ros2_control/issues/275>`_)
-* Update precommit config (backport `#271 <https://github.com/ros-controls/gz_ros2_control/issues/271>`_) (`#278 <https://github.com/ros-controls/gz_ros2_control/issues/278>`_)
-  * Update precommit config (`#271 <https://github.com/ros-controls/gz_ros2_control/issues/271>`_)
+* Use Gazebo ROS vendor packages (`#277 <https://github.com/ros-controls/gz_ros2_control/issues/277>`_)
+* fixed target of ament_export_libraries (`#295 <https://github.com/ros-controls/gz_ros2_control/issues/295>`_)
+* fixed install include (`#294 <https://github.com/ros-controls/gz_ros2_control/issues/294>`_)
+* Added parameters robot_param and robot_param_node (`#275 <https://github.com/ros-controls/gz_ros2_control/issues/275>`_) (`#280 <https://github.com/ros-controls/gz_ros2_control/issues/280>`_)
+  (cherry picked from commit 53b6c74b02bf85860854a37f429b6e2ecf22a4be)
   Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-  (cherry picked from commit 492ed646010fc55a6acc32d07138ddda8824aff5)
-  * make linters happy
+* Rewrite mimic joints (`#276 <https://github.com/ros-controls/gz_ros2_control/issues/276>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Fixed linter (`#264 <https://github.com/ros-controls/gz_ros2_control/issues/264>`_)
+* Fix `#259 <https://github.com/ros-controls/gz_ros2_control/issues/259>`_ - `ParameterAlreadyDeclaredException` for parameter `position_proportional_gain` (`#261 <https://github.com/ros-controls/gz_ros2_control/issues/261>`_)
+* Contributors: Addisu Z. Taddese, Alejandro Hernández Cordero, Christoph Fröhlich, Patrick Roncagliolo, Takashi Sato, mergify[bot]
+
+1.2.2 (2024-03-21)
+------------------
+* Fix typo (`#253 <https://github.com/ros-controls/gz_ros2_control/issues/253>`_)
+* Fix `#247 <https://github.com/ros-controls/gz_ros2_control/issues/247>`_ (`#248 <https://github.com/ros-controls/gz_ros2_control/issues/248>`_)
+* Reset Gazebo with initial joint positions and velocities (`#241 <https://github.com/ros-controls/gz_ros2_control/issues/241>`_)
+* Use portable versio for usleep (`#237 <https://github.com/ros-controls/gz_ros2_control/issues/237>`_)
+* Fix crashing due to an invalid parameter in the initial value (`#233 <https://github.com/ros-controls/gz_ros2_control/issues/233>`_)
+* Contributors: Alejandro Hernández Cordero, Graziato Davide, Ruddick Lawrence, Stephanie Eng
+
+1.2.1 (2024-01-24)
+------------------
+* Load the URDF to the resource_manager before parsing it to CM (`#222 <https://github.com/ros-controls/gz_ros2_control/issues/222>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Use own implementation of `stod()` (`#220 <https://github.com/ros-controls/gz_ros2_control/issues/220>`_)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Contributors: Christoph Fröhlich, Sai Kishor Kothakota
+
+1.2.0 (2024-01-04)
+------------------
+* Add controller name parameter (backport `#212 <https://github.com/ros-controls/gz_ros2_control/issues/212>`_) (`#216 <https://github.com/ros-controls/gz_ros2_control/issues/216>`_)
+  Co-authored-by: Jakub Delicat <109142865+delihus@users.noreply.github.com>
+  Co-authored-by: Alejandro Hernandez Cordero <ahcorde@gmail.com>
+* Add hold_joints parameter (`#213 <https://github.com/ros-controls/gz_ros2_control/issues/213>`_)
+* Fix stuck passive joints (`#184 <https://github.com/ros-controls/gz_ros2_control/issues/184>`_)
+  * Fix stuck passive joints
+  * Update comment
+  * Fix variable naming
   ---------
   Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-* Contributors: Alejandro Hernández Cordero, mergify[bot]
+* Support Harmonic (`#185 <https://github.com/ros-controls/gz_ros2_control/issues/185>`_)
+* Contributors: Alejandro Hernández Cordero, Johannes Huemer, mergify[bot]
 
-0.7.7 (2024-04-09)
+1.1.2 (2023-08-23)
 ------------------
-* Fix `#259 <https://github.com/ros-controls/gz_ros2_control/issues/259>`_ - `ParameterAlreadyDeclaredException` for parameter `position_proportional_gain` (backport `#261 <https://github.com/ros-controls/gz_ros2_control/issues/261>`_) (`#262 <https://github.com/ros-controls/gz_ros2_control/issues/262>`_)
-  Co-authored-by: Patrick Roncagliolo <ronca.pat@gmail.com>
-  Co-authored-by: Alejandro Hernandez Cordero <ahcorde@gmail.com>
-* Contributors: mergify[bot]
+* Catch pluginlib exceptions (`#175 <https://github.com/ros-controls/gz_ros2_control/issues/175>`_)
+* Contributors: Alejandro Hernández Cordero
 
-0.7.6 (2024-03-21)
+1.1.1 (2023-07-13)
 ------------------
-* Fix typo (`#253 <https://github.com/ros-controls/gz_ros2_control/issues/253>`_) (`#254 <https://github.com/ros-controls/gz_ros2_control/issues/254>`_)
-  (cherry picked from commit a98cb2a8b72827b7c1669987d6a12d3f0b30a41e)
-  Co-authored-by: Stephanie Eng <stephanie-eng@users.noreply.github.com>
-* Fix `#247 <https://github.com/ros-controls/gz_ros2_control/issues/247>`_ (`#248 <https://github.com/ros-controls/gz_ros2_control/issues/248>`_) (`#250 <https://github.com/ros-controls/gz_ros2_control/issues/250>`_)
-  (cherry picked from commit 94745e6f5f051214ac9862051f9a918685f2c6b9)
-  Co-authored-by: Graziato Davide <85335579+Fixit-Davide@users.noreply.github.com>
-* Fix `initial_value` not working (backport `#241 <https://github.com/ros-controls/gz_ros2_control/issues/241>`_) (`#243 <https://github.com/ros-controls/gz_ros2_control/issues/243>`_)
-  * Reset Gazebo with initial joint positions and velocities (`#241 <https://github.com/ros-controls/gz_ros2_control/issues/241>`_)
-  (cherry picked from commit c5b0b9049ce75410e75d1828242c1dfd5b19bb80)
-  Co-authored-by: Ruddick Lawrence <679360+mrjogo@users.noreply.github.com>
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-* Use portable versio for usleep (backport `#237 <https://github.com/ros-controls/gz_ros2_control/issues/237>`_) (`#238 <https://github.com/ros-controls/gz_ros2_control/issues/238>`_)
-  * Use portable versio for usleep (`#237 <https://github.com/ros-controls/gz_ros2_control/issues/237>`_)
-  (cherry picked from commit 0bdf13e6986c613c99a595889a587da1db6d7f69)
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-* Fix crashing due to an invalid parameter in the initial value (backport `#233 <https://github.com/ros-controls/gz_ros2_control/issues/233>`_) (`#234 <https://github.com/ros-controls/gz_ros2_control/issues/234>`_)
-  * Fix crashing due to an invalid parameter in the initial value (`#233 <https://github.com/ros-controls/gz_ros2_control/issues/233>`_)
-  (cherry picked from commit a3beadb014f62e0808033de2c5ad84e2428c36e9)
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-* Contributors: Alejandro Hernández Cordero, Ruddick Lawrence, Stephanie Eng, Graziato Davide, mergify[bot]
+* Remove plugin export from ROS 1 (`#158 <https://github.com/ros-controls/gz_ros2_control//issues/158>`_)
+* Fixed default gazebo version in CMakeLists.txt (`#156 <https://github.com/ros-controls/gz_ros2_control//issues/156>`_)
+* Compile master with iron and rolling (`#142 <https://github.com/ros-controls/gz_ros2_control//issues/142>`_)
+* Update package.xml (`#141 <https://github.com/ros-controls/gz_ros2_control//issues/141>`_)
+* Contributors: Alejandro Hernández Cordero, Bence Magyar, Christoph Fröhlich
 
-0.7.5 (2024-01-24)
+1.1.0 (2023-05-23)
 ------------------
-* Load the URDF to the resource_manager before parsing it to CM (`#222 <https://github.com/ros-controls/gz_ros2_control/issues/222>`_) (`#225 <https://github.com/ros-controls/gz_ros2_control/issues/225>`_)
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-  (cherry picked from commit 5a948050563881dba20effec3ccb678e4f375529)
-  Co-authored-by: Sai Kishor Kothakota <saisastra3@gmail.com>
-* Contributors: mergify[bot]
+* Fixed segmentation fault with logger (`#136 <https://github.com/ros-controls/gz_ros2_control/issues/136>`_)
+* Disable ROS signal handlers (`#129 <https://github.com/ros-controls/gz_ros2_control/issues/129>`_)
+* Contributors: Alejandro Hernández Cordero, Carlo Rizzardo
 
-0.7.3 (2024-01-04)
+1.0.0 (2023-03-28)
 ------------------
+* Context and Namespace Handling for Multi-Robot Sim (`#128 <https://github.com/ros-controls/gz_ros2_control/issues/128>`_)
+* Install include directory since it is exported (`#127 <https://github.com/ros-controls/gz_ros2_control/issues/127>`_)
+* Renamed ign to gz (`#67 <https://github.com/ros-controls/gz_ros2_control/issues/67>`_)
+* Contributors: Alejandro Hernández Cordero, Roni Kreinin, Tim Clephas
 
-0.7.2 (2024-01-04)
+0.6.1 (2023-02-07)
 ------------------
-* Add controller name parameter (`#212 <https://github.com/ros-controls/gz_ros2_control/issues/212>`_)
-* Fix stuck passive joints (`#184 <https://github.com/ros-controls/gz_ros2_control/issues/184>`_) (`#206 <https://github.com/ros-controls/gz_ros2_control/issues/206>`_)
-  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
-  (cherry picked from commit 0a8d4464e15e4f13ea0673311c60a891d6a836ec)
-  Co-authored-by: Johannes Huemer <johannes.huemer@ait.ac.at>
-* Contributors: Jakub Delicat, mergify[bot]
-
-0.7.1 (2023-08-23)
-------------------
-* Catch pluginlib exceptions (backport `#175 <https://github.com/ros-controls/gz_ros2_control/issues/175>`_) (`#176 <https://github.com/ros-controls/gz_ros2_control/issues/176>`_)
-* Fixed install include (`#162 <https://github.com/ros-controls/gz_ros2_control/issues/162>`_)
-* Install include directory since it is exported (`#127 <https://github.com/ros-controls/gz_ros2_control/issues/127>`_) (`#161 <https://github.com/ros-controls/gz_ros2_control/issues/161>`_)
-  (cherry picked from commit ab33f76d158e533c21537bc408f636831819e875)
-  Co-authored-by: Tim Clephas <tim.clephas@nobleo.nl>
-* Remove plugin export (ROS 1 syntax) (backport `#158 <https://github.com/ros-controls/gz_ros2_control/issues/158>`_) (`#159 <https://github.com/ros-controls/gz_ros2_control/issues/159>`_)
-  * Remove plugin export from ROS 1 (`#158 <https://github.com/ros-controls/gz_ros2_control/issues/158>`_)
-  (cherry picked from commit 223086dea282ea3ff2c432414396952b9cfeec88)
-  Co-authored-by: Christoph Fröhlich <christophfroehlich@users.noreply.github.com>
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
-* Contributors: Alejandro Hernández Cordero, Christoph Fröhlich, mergify[bot]
-
-0.5.0 (2023-05-23)
-------------------
-* Fixed segmentation fault with logger (backport `#136 <https://github.com/ros-controls/gz_ros2_control/issues/136>`_) (`#140 <https://github.com/ros-controls/gz_ros2_control/issues/140>`_)
-* Contributors: mergify[bot]
-
-0.4.4 (2023-03-28)
-------------------
-* Context and Namespace Handling for Multi-Robot Sim (`#92 <https://github.com/ros-controls/gz_ros2_control/issues/92>`_)
 * Various bug fixes (`#114 <https://github.com/ros-controls/gz_ros2_control/issues/114>`_)
+* Contributors: AndyZe
+
+0.6.0 (2023-01-06)
+------------------
+* Fix API braking of hardware plugin name. (`#108 <https://github.com/ros-controls/gz_ros2_control/issues/108>`_)
+* Galactic to master -- Merge pull request `#103 <https://github.com/ros-controls/gz_ros2_control/issues/103>`_ from ros-controls/ahcorde/galactic_to_main_25_11_2022
+* Force setting use_sim_time parameter when using plugin. (`#100 <https://github.com/ros-controls/gz_ros2_control/issues/100>`_) (`#102 <https://github.com/ros-controls/gz_ros2_control/issues/102>`_)
 * Force setting use_sim_time parameter when using plugin. (`#100 <https://github.com/ros-controls/gz_ros2_control/issues/100>`_)
 * Enable loading params from multiple yaml files (`#94 <https://github.com/ros-controls/gz_ros2_control/issues/94>`_)
 * Add support for mimic joints. (`#33 <https://github.com/ros-controls/gz_ros2_control/issues/33>`_)
 * Set right initial velocity (`#81 <https://github.com/ros-controls/gz_ros2_control/issues/81>`_)
+* Contributors: Alejandro Hernández Cordero, Denis Štogl, Lovro Ivanov
+
+0.5.0 (2022-08-09)
+------------------
 * Fix setting initial values if command interfaces are not defined. (`#73 <https://github.com/ros-controls/gz_ros2_control/issues/73>`_)
 * activated all hardware by default and improved variable naming (`#74 <https://github.com/ros-controls/gz_ros2_control/issues/74>`_)
 * Implemented perform_command_mode_switch override in GazeboSystem (`#76 <https://github.com/ros-controls/gz_ros2_control/issues/76>`_)
 * Remove warnings (`#72 <https://github.com/ros-controls/gz_ros2_control/issues/72>`_)
 * change component name for ignition (`#69 <https://github.com/ros-controls/gz_ros2_control/issues/69>`_)
 * Added logic for activating hardware interfaces (`#68 <https://github.com/ros-controls/gz_ros2_control/issues/68>`_)
-* Force setting use_sim_time parameter when using plugin. (`#100 <https://github.com/ros-controls/gz_ros2_control/issues/100>`_) (`#102 <https://github.com/ros-controls/gz_ros2_control/issues/102>`_)
-* Contributors: Alejandro Hernández Cordero, Andy Zelenak, Bence Magyar, Denis Štogl, Lovro, Tianyu Li, sp-sophia-labs
-
-0.4.3 (2023-02-16)
-------------------
-* Fix example demos in humble branch `#118 <https://github.com/ros-controls/gz_ros2_control/issues/118>`_ from iche033/iche033/fix_humble_demos
-* Remove URDF dependency (`#56 <https://github.com/ros-controls/gz_ros2_control/issues/56>`_)
+* Merge branch 'foxy' into ahcorde/foxy_to_galactic_27_05_2022
 * Adapt to ROS 2 Humble
-* typo in citadel name (`#54 <https://github.com/ros-controls/gz_ros2_control/issues/54>`_)
+* typo in citadel name (`#51 <https://github.com/ros-controls/gz_ros2_control/issues/51>`_)
 * ros2_control is now having usings under its namespace. (`#43 <https://github.com/ros-controls/gz_ros2_control/issues/43>`_)
 * Fix default ign gazebo version Rolling (`#45 <https://github.com/ros-controls/gz_ros2_control/issues/45>`_)
 * Fix ignition version in package.xml - Rolling (`#41 <https://github.com/ros-controls/gz_ros2_control/issues/41>`_)
 * Add support for initial_values for hardware interfaces when starting simulation. (`#27 <https://github.com/ros-controls/gz_ros2_control/issues/27>`_)
 * Contributors: Alejandro Hernández Cordero, Denis Štogl, Guillaume Beuzeboc, Tianyu Li
+
+0.4.1 (2022-06-06)
+------------------
+* Remove URDF dependency (`#56 <https://github.com/ignitionrobotics/ign_ros2_control/issues/56>`_)
+* typo in citadel name (`#54 <https://github.com/ignitionrobotics/ign_ros2_control/issues/54>`_)
+* Contributors: Alejandro Hernández Cordero, Guillaume Beuzeboc, ahcorde
 
 0.4.0 (2022-03-18)
 ------------------
